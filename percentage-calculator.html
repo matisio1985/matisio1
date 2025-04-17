@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Percentage Calculator – Fast % Calculations | MathijssenFit</title>
+  <meta name="description" content="Use this free percentage calculator to quickly calculate percentage increase, decrease, and find percentages of numbers.">
+<!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q5S20EKJG9');
+  </script>
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3167065596755326" crossorigin="anonymous"></script>
+
+  <!-- Monetag -->
+  <script src="https://kulroakonsu.net/88/tag.min.js" data-zone="142870" async data-cfasync="false"></script>
+
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --text: #333;
+      --card: #fff;
+      --accent: #007acc;
+    }
+
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --card: #1e1e1e;
+      --accent: #4ea8de;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(135deg, #007acc, #005c99);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 999;
+    }
+
+    .topbar a, .topbar button {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+
+    main {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 1rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #005c99;
+    }
+
+    .result {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: #e6f7ff;
+      border-left: 5px solid var(--accent);
+      border-radius: 6px;
+    }
+
+    .ads {
+      margin: 2rem 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <div class="topbar">
+    <div><a href="/">⬅ Home</a></div>
+    <div><button onclick="toggleDarkMode()">🌓 Dark mode</button></div>
+  </div>
+
+  <header>
+    <h1>Percentage Calculator</h1>
+    <p>Calculate percentages, percentage increase, and decrease instantly.</p>
+  </header>
+
+  <main>
+    <div class="ads">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3167065596755326" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <label>What is <input type="number" id="percent1">% of <input type="number" id="number1">?</label>
+    <button onclick="calculatePercentOf()">Calculate</button>
+    <div id="result1" class="result" style="display:none;"></div>
+
+    <label><input type="number" id="number2"> is what % of <input type="number" id="number3">?</label>
+    <button onclick="calculateWhatPercent()">Calculate</button>
+    <div id="result2" class="result" style="display:none;"></div>
+
+    <label>Increase <input type="number" id="number4"> by <input type="number" id="percent2">%</label>
+    <button onclick="calculateIncrease()">Calculate</button>
+    <div id="result3" class="result" style="display:none;"></div>
+
+    <label>Decrease <input type="number" id="number5"> by <input type="number" id="percent3">%</label>
+    <button onclick="calculateDecrease()">Calculate</button>
+    <div id="result4" class="result" style="display:none;"></div>
+
+    <section style="max-width: 700px; margin-top: 2rem;">
+      <h2>About This Percentage Calculator</h2>
+      <p>
+        This tool helps you solve common percentage problems such as: “What is 20% of 150?”, “What percent is 45 of 90?”, and “How much is a 30% increase on 200?”. It’s ideal for math, shopping, finance, and daily life.
+      </p>
+
+      <h2>How Percentages Work</h2>
+      <p>
+        A percentage is a part per hundred. To find X% of Y, simply multiply X/100 by Y. To calculate increase or decrease, you apply the percentage to the base and add or subtract it.
+      </p>
+
+      <h2>Why Use a Percentage Calculator?</h2>
+      <p>
+        It's fast, accurate, and saves you from mental math mistakes. Whether you're a student, shopper, or small business owner — percentages are everywhere!
+      </p>
+    </section>
+
+    <div class="ads">
+      <script type="text/javascript">(monetag = window.monetag || []).push({});</script>
+    </div>
+  </main>
+
+  <script>
+    function toggleDarkMode() {
+      const currentTheme = document.body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+
+    function calculatePercentOf() {
+      const p = parseFloat(document.getElementById('percent1').value);
+      const n = parseFloat(document.getElementById('number1').value);
+      const r = document.getElementById('result1');
+      if (!isNaN(p) && !isNaN(n)) {
+        r.innerHTML = `${p}% of ${n} is <strong>${(p/100*n).toFixed(2)}</strong>`;
+        r.style.display = 'block';
+      }
+    }
+
+    function calculateWhatPercent() {
+      const a = parseFloat(document.getElementById('number2').value);
+      const b = parseFloat(document.getElementById('number3').value);
+      const r = document.getElementById('result2');
+      if (!isNaN(a) && !isNaN(b) && b !== 0) {
+        r.innerHTML = `${a} is <strong>${(a/b*100).toFixed(2)}%</strong> of ${b}`;
+        r.style.display = 'block';
+      }
+    }
+
+    function calculateIncrease() {
+      const base = parseFloat(document.getElementById('number4').value);
+      const percent = parseFloat(document.getElementById('percent2').value);
+      const r = document.getElementById('result3');
+      if (!isNaN(base) && !isNaN(percent)) {
+        const result = base + (base * percent / 100);
+        r.innerHTML = `${percent}% increase on ${base} is <strong>${result.toFixed(2)}</strong>`;
+        r.style.display = 'block';
+      }
+    }
+
+    function calculateDecrease() {
+      const base = parseFloat(document.getElementById('number5').value);
+      const percent = parseFloat(document.getElementById('percent3').value);
+      const r = document.getElementById('result4');
+      if (!isNaN(base) && !isNaN(percent)) {
+        const result = base - (base * percent / 100);
+        r.innerHTML = `${percent}% decrease on ${base} is <strong>${result.toFixed(2)}</strong>`;
+        r.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>

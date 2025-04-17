@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Number Generator – Pick a Number | MathijssenFit</title>
+  <meta name="description" content="Generate random numbers between any two values. Use this tool for games, lotteries, and quick picks.">
+<!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q5S20EKJG9');
+  </script>
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3167065596755326" crossorigin="anonymous"></script>
+
+  <!-- Monetag -->
+  <script src="https://kulroakonsu.net/88/tag.min.js" data-zone="142870" async data-cfasync="false"></script>
+
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --text: #333;
+      --card: #fff;
+      --accent: #007acc;
+    }
+
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --card: #1e1e1e;
+      --accent: #4ea8de;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(135deg, #007acc, #005c99);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 999;
+    }
+
+    .topbar a, .topbar button {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 0.8rem 1.5rem;
+      margin-top: 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #005c99;
+    }
+
+    #output {
+      font-size: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .ads {
+      margin: 2rem 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <div class="topbar">
+    <div><a href="/">⬅ Home</a></div>
+    <div><button onclick="toggleDarkMode()">🌓 Dark mode</button></div>
+  </div>
+
+  <header>
+    <h1>Random Number Generator</h1>
+    <p>Enter a minimum and maximum number, and we’ll pick a number for you!</p>
+  </header>
+
+  <main>
+    <div class="ads">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3167065596755326" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <input type="number" id="min" placeholder="Minimum number">
+    <input type="number" id="max" placeholder="Maximum number">
+    <button onclick="generateRandom()">Generate</button>
+
+    <div id="output"></div>
+
+    <div class="ads">
+      <script type="text/javascript">(monetag = window.monetag || []).push({});</script>
+    </div>
+
+    <section style="max-width: 600px; margin: 2rem auto; padding: 1rem;">
+      <h2>How this tool works</h2>
+      <p>
+        This random number generator selects a whole number between the minimum and maximum values you set. It’s useful for raffles, school, decisions, or games.
+      </p>
+
+      <h2>Why use a random number picker?</h2>
+      <p>
+        Humans are bad at being random. This tool ensures unbiased, fair results in one click. Great for giveaways, team assignments, or quick decisions.
+      </p>
+
+      <h2>Examples of use</h2>
+      <ul>
+        <li>Pick a number between 1 and 100</li>
+        <li>Draw a winner from a group</li>
+        <li>Choose a random team or student</li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    function toggleDarkMode() {
+      const currentTheme = document.body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+
+    function generateRandom() {
+      const min = parseInt(document.getElementById('min').value);
+      const max = parseInt(document.getElementById('max').value);
+      const output = document.getElementById('output');
+      if (!isNaN(min) && !isNaN(max) && max >= min) {
+        const result = Math.floor(Math.random() * (max - min + 1)) + min;
+        output.innerHTML = `<strong>Random number:</strong> ${result}`;
+      } else {
+        output.innerHTML = `<span style="color:red;">Please enter valid numbers (max ≥ min)</span>`;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.body.setAttribute('data-theme', savedTheme);
+    });
+  </script>
+</body>
+</html>

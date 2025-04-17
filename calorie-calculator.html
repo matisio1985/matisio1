@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calorie Calculator – Calculate Your Energy Needs | MathijssenFit</title>
+  <meta name="description" content="Use our calorie calculator to estimate your daily energy needs based on age, gender, height, weight, and activity level.">
+<!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q5S20EKJG9');
+  </script>
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3167065596755326" crossorigin="anonymous"></script>
+
+  <!-- Monetag -->
+  <script src="https://kulroakonsu.net/88/tag.min.js" data-zone="142870" async data-cfasync="false"></script>
+
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --text: #333;
+      --card: #fff;
+      --accent: #007acc;
+    }
+
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --card: #1e1e1e;
+      --accent: #4ea8de;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(135deg, #007acc, #005c99);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 999;
+    }
+
+    .topbar a, .topbar button {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button[type="submit"] {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 1rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background: #005c99;
+    }
+
+    .result {
+      margin-top: 2rem;
+      padding: 1.2rem;
+      background: #e6f7ff;
+      border-left: 5px solid var(--accent);
+      border-radius: 6px;
+    }
+
+    .ads {
+      margin: 2rem 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <div class="topbar">
+    <div>
+      <a href="/">⬅ Home</a>
+    </div>
+    <div>
+      <button onclick="toggleDarkMode()">🌓 Dark mode</button>
+    </div>
+  </div>
+
+  <header>
+    <h1>Calorie Calculator – Calculate Your Energy Needs</h1>
+    <p>Enter your details to find out how many calories you need per day.</p>
+  </header>
+
+  <main>
+    <div class="ads">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3167065596755326" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <form id="calorieForm">
+      <label>Age
+        <input type="number" id="leeftijd" required>
+      </label>
+
+      <label>Gender
+        <select id="geslacht">
+          <option value="man">Male</option>
+          <option value="vrouw">Female</option>
+        </select>
+      </label>
+
+      <label>Weight (kg)
+        <input type="number" id="gewicht" required>
+      </label>
+
+      <label>Height (cm)
+        <input type="number" id="lengte" required>
+      </label>
+
+      <label>Activity level
+        <select id="activiteit">
+          <option value="1.2">Little or no exercise</option>
+          <option value="1.375">Light exercise (1–3 days/week)</option>
+          <option value="1.55">Moderate exercise (3–5 days/week)</option>
+          <option value="1.725">Hard exercise (6–7 days/week)</option>
+          <option value="1.9">Very hard exercise (physical job or 2x training)</option>
+        </select>
+      </label>
+
+      <button type="submit">Calculate Calorie Needs</button>
+    </form>
+
+    <div id="resultaat" class="result" style="display: none;"></div>
+
+    <div class="ads">
+      <script type="text/javascript">(monetag = window.monetag || []).push({});</script>
+    </div>
+  </main>
+<section style="max-width: 600px; margin: 2rem auto; padding: 1rem;">
+  <h2>What is a Calorie Calculator?</h2>
+  <p>
+    A calorie calculator helps you estimate how many calories your body needs each day based on your age, gender, height, weight, and physical activity level. It's a useful tool for managing weight, building muscle, or improving your overall health.
+  </p>
+
+  <h2>How does it work?</h2>
+  <p>
+    The calculator uses the Mifflin-St Jeor formula to estimate your Basal Metabolic Rate (BMR), which is then adjusted for your activity level. This provides an estimate of your Total Daily Energy Expenditure (TDEE), or how many calories you burn per day.
+  </p>
+
+  <h2>Why track your calorie needs?</h2>
+  <p>
+    Understanding your daily calorie requirement can help you reach your fitness goals faster. Whether you're looking to lose weight, gain muscle, or maintain your current physique, having a daily calorie target is essential.
+  </p>
+</section>
+
+  <script>
+    function toggleDarkMode() {
+      const currentTheme = document.body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.body.setAttribute('data-theme', savedTheme);
+    });
+
+    document.getElementById('calorieForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const leeftijd = parseInt(document.getElementById('leeftijd').value);
+      const geslacht = document.getElementById('geslacht').value;
+      const gewicht = parseFloat(document.getElementById('gewicht').value);
+      const lengte = parseFloat(document.getElementById('lengte').value);
+      const activiteit = parseFloat(document.getElementById('activiteit').value);
+      let bmr = geslacht === 'man' ? 10 * gewicht + 6.25 * lengte - 5 * leeftijd + 5 : 10 * gewicht + 6.25 * lengte - 5 * leeftijd - 161;
+      const caloriebehoefte = Math.round(bmr * activiteit);
+      const resultaat = document.getElementById('resultaat');
+      resultaat.innerHTML = `<strong>${caloriebehoefte}</strong> kcal per day.`;
+      resultaat.style.display = 'block';
+    });
+  </script>
+</body>
+</html>

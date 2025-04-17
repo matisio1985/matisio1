@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Timer – Set Your Time | MathijssenFit</title>
+  <meta name="description" content="Set a countdown timer online. Perfect for workouts, study sessions or productivity sprints.">
+<!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q5S20EKJG9');
+  </script>
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3167065596755326" crossorigin="anonymous"></script>
+
+  <!-- Monetag -->
+  <script src="https://kulroakonsu.net/88/tag.min.js" data-zone="142870" async data-cfasync="false"></script>
+
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --text: #333;
+      --card: #fff;
+      --accent: #007acc;
+    }
+
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --card: #1e1e1e;
+      --accent: #4ea8de;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(135deg, #007acc, #005c99);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 999;
+    }
+
+    .topbar a, .topbar button {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .buttons button {
+      padding: 0.8rem 1.5rem;
+      margin: 0.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+    }
+
+    .buttons button:hover {
+      background: #005c99;
+    }
+
+    #display {
+      font-size: 2.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .ads {
+      margin: 2rem 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <div class="topbar">
+    <div>
+      <a href="/">⬅ Home</a>
+    </div>
+    <div>
+      <button onclick="toggleDarkMode()">🌓 Dark mode</button>
+    </div>
+  </div>
+
+  <header>
+    <h1>Countdown Timer</h1>
+    <p>Enter minutes and seconds, then press Start.</p>
+  </header>
+
+  <main>
+    <div class="ads">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3167065596755326" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <input type="number" id="minutes" placeholder="Minutes" min="0">
+    <input type="number" id="seconds" placeholder="Seconds" min="0" max="59">
+
+    <div class="buttons">
+      <button onclick="startCountdown()">Start</button>
+      <button onclick="resetCountdown()">Reset</button>
+    </div>
+
+    <div id="display">00:00</div>
+
+    <div class="ads">
+      <script type="text/javascript">(monetag = window.monetag || []).push({});</script>
+    </div>
+  </main>
+<section style="max-width: 600px; margin: 2rem auto; padding: 1rem;">
+  <h2>What is a Countdown Timer?</h2>
+  <p>
+    A countdown timer counts down from a set time to zero. It’s a practical tool for timeboxing tasks, workouts, cooking, studying, or any activity where time tracking is helpful.
+  </p>
+
+  <h2>How to use this timer</h2>
+  <p>
+    Enter the number of minutes and seconds you want, then click “Start” to begin. When the timer reaches zero, an alert will notify you. Click “Reset” to clear and start over.
+  </p>
+
+  <h2>Benefits of using a countdown timer</h2>
+  <p>
+    Countdown timers help improve focus and structure. They're ideal for productivity techniques like the Pomodoro method, or for breaking work into manageable blocks with built-in breaks.
+  </p>
+</section>
+
+  <script>
+    let countdown;
+    let totalSeconds = 0;
+
+    function updateDisplayCountdown() {
+      const mins = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+      const secs = String(totalSeconds % 60).padStart(2, '0');
+      document.getElementById('display').textContent = `${mins}:${secs}`;
+    }
+
+    function startCountdown() {
+      const minsInput = parseInt(document.getElementById('minutes').value) || 0;
+      const secsInput = parseInt(document.getElementById('seconds').value) || 0;
+      totalSeconds = minsInput * 60 + secsInput;
+      updateDisplayCountdown();
+      clearInterval(countdown);
+      countdown = setInterval(() => {
+        if (totalSeconds > 0) {
+          totalSeconds--;
+          updateDisplayCountdown();
+        } else {
+          clearInterval(countdown);
+          alert("Time's up!");
+        }
+      }, 1000);
+    }
+
+    function resetCountdown() {
+      clearInterval(countdown);
+      totalSeconds = 0;
+      updateDisplayCountdown();
+    }
+
+    function toggleDarkMode() {
+      const currentTheme = document.body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.body.setAttribute('data-theme', savedTheme);
+      updateDisplayCountdown();
+    });
+  </script>
+</body>
+</html>
