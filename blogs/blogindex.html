@@ -75,16 +75,14 @@
 
 <script>
   const blogFiles = [
-    'notion-vs-onenote.md',
-    'miro-vs-mural.md',
-    'top-todo-apps.md'
+    'Microsoft_Loop_vs_OneNote_Guide.md',
   ];
 
   const container = document.getElementById('blog-container');
   container.innerHTML = '';
 
   blogFiles.forEach(file => {
-    fetch(`/tools/blogs/${file}`)
+    fetch(`/blogs/${file}`)
       .then(res => res.text())
       .then(md => {
         const titleMatch = md.match(/title:\s*"(.+?)"/);
