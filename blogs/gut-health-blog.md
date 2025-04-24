@@ -43,6 +43,22 @@ A 2023 study from Stanford University found individuals with diverse gut microbi
 ## The Surprising Gut-Brain Connection
 
 Perhaps most surprising is the emerging research on bidirectional communication between your gut and brain, often called the "gut-brain axis." This connection helps explain why digestive symptoms often accompany mental health conditions and why psychological stress frequently triggers digestive disturbances.
+<!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q5S20EKJG9');
+  </script>
+
+   <!-- AdSterra -->
+ <script type='text/javascript' src='//pl26467430.profitableratecpm.com/24/b0/99/24b099bde140f78f3afc6c59c9fee3b1.js'></script>
+<script async="async" data-cfasync="false" src="//pl26472619.profitableratecpm.com/c92e60afb05b055816e06d4dcafca864/invoke.js"></script>
+<div id="container-c92e60afb05b055816e06d4dcafca864"></div>
+
+  <!-- Monetag -->
+  <script src="https://ligheechoagool.com/88/tag.min.js" data-zone="140849" async data-cfasync="false"></script>
 
 ### Neurotransmitter Production
 
