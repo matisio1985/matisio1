@@ -164,7 +164,7 @@
 
     <form id="calorieForm">
       <label>Age
-        <input type="number" id="leeftijd" required>
+        <input type="number" id="leeftijd" step="any" required>
       </label>
 
       <label>Gender
@@ -175,11 +175,11 @@
       </label>
 
       <label>Weight (<span id="weightUnit">kg</span>)
-        <input type="number" id="gewicht" required>
+        <input type="number" id="gewicht" step="any" required>
       </label>
 
       <label>Height (<span id="heightUnit">cm</span>)
-        <input type="number" id="lengte" required>
+        <input type="number" id="lengte" step="any" required>
       </label>
 
       <label>Activity level
@@ -236,13 +236,13 @@
       const lengteUnit = document.getElementById('heightUnit');
 
       if (unit === 'imperial') {
-        gewichtInput.value = (parseFloat(gewichtInput.value) * 2.20462).toFixed(1); // kg → lbs
-        lengteInput.value = (parseFloat(lengteInput.value) / 2.54).toFixed(1);       // cm → inches
+        gewichtInput.value = (parseFloat(gewichtInput.value) * 2.20462).toFixed(2);
+        lengteInput.value = (parseFloat(lengteInput.value) / 2.54).toFixed(2);
         gewichtUnit.textContent = 'lbs';
         lengteUnit.textContent = 'inches';
       } else {
-        gewichtInput.value = (parseFloat(gewichtInput.value) / 2.20462).toFixed(1); // lbs → kg
-        lengteInput.value = (parseFloat(lengteInput.value) * 2.54).toFixed(1);       // inches → cm
+        gewichtInput.value = (parseFloat(gewichtInput.value) / 2.20462).toFixed(2);
+        lengteInput.value = (parseFloat(lengteInput.value) * 2.54).toFixed(2);
         gewichtUnit.textContent = 'kg';
         lengteUnit.textContent = 'cm';
       }
@@ -250,7 +250,7 @@
 
     document.getElementById('calorieForm').addEventListener('submit', function (e) {
       e.preventDefault();
-      const leeftijd = parseInt(document.getElementById('leeftijd').value);
+      const leeftijd = parseFloat(document.getElementById('leeftijd').value);
       const geslacht = document.getElementById('geslacht').value;
       let gewicht = parseFloat(document.getElementById('gewicht').value);
       let lengte = parseFloat(document.getElementById('lengte').value);
