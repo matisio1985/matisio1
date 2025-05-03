@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calorie Calculator – Calculate Your Energy Needs | MathijssenFit</title>
   <meta name="description" content="Use our calorie calculator to estimate your daily energy needs based on age, gender, height, weight, and activity level.">
-<!-- Google Analytics -->
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,10 +15,18 @@
     gtag('config', 'G-Q5S20EKJG9');
   </script>
 
-    <!-- Monetag -->
-      <script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
-      <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9289950,document.createElement('script'))</script>
+  <!-- Monetag -->
+  <script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
+  <script>
+    (function(d, z, s) {
+      s.src = 'https://' + d + '/401/' + z;
+      try {
+        (document.body || document.documentElement).appendChild(s)
+      } catch (e) {}
+    })('gizokraijaw.net', 9289950, document.createElement('script'));
+  </script>
   <script src="https://vaugroar.com/act/files/tag.min.js?z=9289953" data-cfasync="false" async></script>
+
   <style>
     :root {
       --bg: #f8f9fa;
@@ -140,6 +149,14 @@
   </header>
 
   <main>
+    <div style="text-align: center; margin-bottom: 1rem;">
+      <label for="unitToggle"><strong>Unit system:</strong></label>
+      <select id="unitToggle">
+        <option value="metric" selected>Metric (kg, cm)</option>
+        <option value="imperial">Imperial (lbs, inches)</option>
+      </select>
+    </div>
+
     <div class="ads">
       <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3167065596755326" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -157,11 +174,11 @@
         </select>
       </label>
 
-      <label>Weight (kg)
+      <label>Weight (<span id="weightUnit">kg</span>)
         <input type="number" id="gewicht" required>
       </label>
 
-      <label>Height (cm)
+      <label>Height (<span id="heightUnit">cm</span>)
         <input type="number" id="lengte" required>
       </label>
 
@@ -179,27 +196,24 @@
     </form>
 
     <div id="resultaat" class="result" style="display: none;"></div>
-
-    <div class="ads">
-      
-    </div>
   </main>
-<section style="max-width: 600px; margin: 2rem auto; padding: 1rem;">
-  <h2>What is a Calorie Calculator?</h2>
-  <p>
-    A calorie calculator helps you estimate how many calories your body needs each day based on your age, gender, height, weight, and physical activity level. It's a useful tool for managing weight, building muscle, or improving your overall health.
-  </p>
 
-  <h2>How does it work?</h2>
-  <p>
-    The calculator uses the Mifflin-St Jeor formula to estimate your Basal Metabolic Rate (BMR), which is then adjusted for your activity level. This provides an estimate of your Total Daily Energy Expenditure (TDEE), or how many calories you burn per day.
-  </p>
+  <section style="max-width: 600px; margin: 2rem auto; padding: 1rem;">
+    <h2>What is a Calorie Calculator?</h2>
+    <p>
+      A calorie calculator helps you estimate how many calories your body needs each day based on your age, gender, height, weight, and physical activity level. It's a useful tool for managing weight, building muscle, or improving your overall health.
+    </p>
 
-  <h2>Why track your calorie needs?</h2>
-  <p>
-    Understanding your daily calorie requirement can help you reach your fitness goals faster. Whether you're looking to lose weight, gain muscle, or maintain your current physique, having a daily calorie target is essential.
-  </p>
-</section>
+    <h2>How does it work?</h2>
+    <p>
+      The calculator uses the Mifflin-St Jeor formula to estimate your Basal Metabolic Rate (BMR), which is then adjusted for your activity level. This provides an estimate of your Total Daily Energy Expenditure (TDEE), or how many calories you burn per day.
+    </p>
+
+    <h2>Why track your calorie needs?</h2>
+    <p>
+      Understanding your daily calorie requirement can help you reach your fitness goals faster. Whether you're looking to lose weight, gain muscle, or maintain your current physique, having a daily calorie target is essential.
+    </p>
+  </section>
 
   <script>
     function toggleDarkMode() {
@@ -214,14 +228,44 @@
       document.body.setAttribute('data-theme', savedTheme);
     });
 
-    document.getElementById('calorieForm').addEventListener('submit', function(e) {
+    document.getElementById('unitToggle').addEventListener('change', function () {
+      const unit = this.value;
+      const gewichtInput = document.getElementById('gewicht');
+      const lengteInput = document.getElementById('lengte');
+      const gewichtUnit = document.getElementById('weightUnit');
+      const lengteUnit = document.getElementById('heightUnit');
+
+      if (unit === 'imperial') {
+        gewichtInput.value = (parseFloat(gewichtInput.value) * 2.20462).toFixed(1); // kg → lbs
+        lengteInput.value = (parseFloat(lengteInput.value) / 2.54).toFixed(1);       // cm → inches
+        gewichtUnit.textContent = 'lbs';
+        lengteUnit.textContent = 'inches';
+      } else {
+        gewichtInput.value = (parseFloat(gewichtInput.value) / 2.20462).toFixed(1); // lbs → kg
+        lengteInput.value = (parseFloat(lengteInput.value) * 2.54).toFixed(1);       // inches → cm
+        gewichtUnit.textContent = 'kg';
+        lengteUnit.textContent = 'cm';
+      }
+    });
+
+    document.getElementById('calorieForm').addEventListener('submit', function (e) {
       e.preventDefault();
       const leeftijd = parseInt(document.getElementById('leeftijd').value);
       const geslacht = document.getElementById('geslacht').value;
-      const gewicht = parseFloat(document.getElementById('gewicht').value);
-      const lengte = parseFloat(document.getElementById('lengte').value);
+      let gewicht = parseFloat(document.getElementById('gewicht').value);
+      let lengte = parseFloat(document.getElementById('lengte').value);
       const activiteit = parseFloat(document.getElementById('activiteit').value);
-      let bmr = geslacht === 'man' ? 10 * gewicht + 6.25 * lengte - 5 * leeftijd + 5 : 10 * gewicht + 6.25 * lengte - 5 * leeftijd - 161;
+      const unit = document.getElementById('unitToggle').value;
+
+      if (unit === 'imperial') {
+        gewicht = gewicht / 2.20462;
+        lengte = lengte * 2.54;
+      }
+
+      let bmr = geslacht === 'man'
+        ? 10 * gewicht + 6.25 * lengte - 5 * leeftijd + 5
+        : 10 * gewicht + 6.25 * lengte - 5 * leeftijd - 161;
+
       const caloriebehoefte = Math.round(bmr * activiteit);
       const resultaat = document.getElementById('resultaat');
       resultaat.innerHTML = `<strong>${caloriebehoefte}</strong> kcal per day.`;
