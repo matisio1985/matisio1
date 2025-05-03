@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BMI Calculator – Body Mass Index Tool | MathijssenFit</title>
   <meta name="description" content="Quickly calculate your Body Mass Index (BMI) and check your weight category. Use our free BMI calculator – by MathijssenFit.">
-<!-- Google Analytics -->
+  
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,9 +15,13 @@
     gtag('config', 'G-Q5S20EKJG9');
   </script>
 
-    <!-- Monetag -->
-      <script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
-      <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9289950,document.createElement('script'))</script>
+  <!-- Monetag -->
+  <script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
+  <script>
+    (function(d,z,s){s.src='https://'+d+'/401/'+z;
+    try{(document.body||document.documentElement).appendChild(s)}catch(e){}})
+    ('gizokraijaw.net',9289950,document.createElement('script'));
+  </script>
   <script src="https://vaugroar.com/act/files/tag.min.js?z=9289953" data-cfasync="false" async></script>
 
   <style>
@@ -87,7 +92,7 @@
       margin-top: 1rem;
     }
 
-    input {
+    input, select {
       width: 100%;
       padding: 0.8rem;
       margin-top: 0.5rem;
@@ -141,50 +146,56 @@
   </header>
 
   <main>
+    <div style="text-align: center; margin-bottom: 1rem;">
+      <label for="unitToggle"><strong>Unit system:</strong></label>
+      <select id="unitToggle">
+        <option value="metric" selected>Metric (kg, cm)</option>
+        <option value="imperial">Imperial (lbs, inches)</option>
+      </select>
+    </div>
+
     <div class="ads">
       <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3167065596755326" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
     <form id="bmiForm">
-      <label>Weight (kg)
-        <input type="number" id="gewicht" required>
+      <label>Weight (<span id="weightUnit">kg</span>)
+        <input type="number" id="gewicht" step="any" required>
       </label>
 
-      <label>Height (cm)
-        <input type="number" id="lengte" required>
+      <label>Height (<span id="heightUnit">cm</span>)
+        <input type="number" id="lengte" step="any" required>
       </label>
 
       <button type="submit">Calculate BMI</button>
     </form>
 
     <div id="resultaat" class="result" style="display: none;"></div>
-
-    <div class="ads">
-    
-    </div>
   </main>
-<section style="max-width: 600px; margin: 2rem auto; padding: 1rem;">
-  <h2>What is BMI?</h2>
-  <p>
-    BMI (Body Mass Index) is a simple formula used to evaluate if your weight is healthy for your height. It’s calculated by dividing your weight in kilograms by the square of your height in meters. This tool helps you find out if you are underweight, normal, overweight, or obese.
-  </p>
 
-  <h2>How to use this calculator</h2>
-  <p>
-    Enter your weight in kilograms and height in centimeters, then press \"Calculate BMI\". Your BMI will be shown instantly, along with a health category.
-  </p>
+  <section style="max-width: 600px; margin: 2rem auto; padding: 1rem;">
+    <h2>What is BMI?</h2>
+    <p>
+      BMI (Body Mass Index) is a simple formula used to evaluate if your weight is healthy for your height. It’s calculated by dividing your weight in kilograms by the square of your height in meters. This tool helps you find out if you are underweight, normal, overweight, or obese.
+    </p>
 
-  <h2>Why is BMI important?</h2>
-  <p>
-    Knowing your BMI can help you understand your health status. While it’s not a perfect measurement, it gives a general indication of body fat and potential health risks.
-  </p>
-  <h2>Want to learn more about what your BMI really means?</h2><br>
-Understanding your Body Mass Index is just the first step. For a deeper look into how BMI is calculated, what it indicates about your health, and its limitations, check out our detailed blog post: 
-<a href="https://blogs.matisio.nl/2025/05/understanding-bmi-what-it-means-for.html" target="_blank" rel="noopener">Understanding BMI: What It Means for Your Health</a>.
-</p>
-  
-</section>
+    <h2>How to use this calculator</h2>
+    <p>
+      Enter your weight and height, then press "Calculate BMI". Your BMI will be shown instantly, along with a health category.
+    </p>
+
+    <h2>Why is BMI important?</h2>
+    <p>
+      Knowing your BMI can help you understand your health status. While it’s not a perfect measurement, it gives a general indication of body fat and potential health risks.
+    </p>
+
+    <h2>Want to learn more about what your BMI really means?</h2>
+    <p>
+      Understanding your Body Mass Index is just the first step. For a deeper look into how BMI is calculated, what it indicates about your health, and its limitations, check out our detailed blog post:  
+      <a href="https://blogs.matisio.nl/2025/05/understanding-bmi-what-it-means-for.html" target="_blank" rel="noopener">Understanding BMI: What It Means for Your Health</a>.
+    </p>
+  </section>
 
   <script>
     function toggleDarkMode() {
@@ -194,15 +205,38 @@ Understanding your Body Mass Index is just the first step. For a deeper look int
       localStorage.setItem('theme', newTheme);
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      document.body.setAttribute('data-theme', savedTheme);
+    document.getElementById('unitToggle').addEventListener('change', function () {
+      const gewichtInput = document.getElementById('gewicht');
+      const lengteInput = document.getElementById('lengte');
+      const gewichtUnit = document.getElementById('weightUnit');
+      const lengteUnit = document.getElementById('heightUnit');
+      const unit = this.value;
+
+      if (unit === 'imperial') {
+        gewichtInput.value = (parseFloat(gewichtInput.value) * 2.20462).toFixed(2);
+        lengteInput.value = (parseFloat(lengteInput.value) / 2.54).toFixed(2);
+        gewichtUnit.textContent = 'lbs';
+        lengteUnit.textContent = 'inches';
+      } else {
+        gewichtInput.value = (parseFloat(gewichtInput.value) / 2.20462).toFixed(2);
+        lengteInput.value = (parseFloat(lengteInput.value) * 2.54).toFixed(2);
+        gewichtUnit.textContent = 'kg';
+        lengteUnit.textContent = 'cm';
+      }
     });
 
     document.getElementById('bmiForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const gewicht = parseFloat(document.getElementById('gewicht').value);
-      const lengte = parseFloat(document.getElementById('lengte').value) / 100;
+      let gewicht = parseFloat(document.getElementById('gewicht').value);
+      let lengte = parseFloat(document.getElementById('lengte').value);
+      const unit = document.getElementById('unitToggle').value;
+
+      if (unit === 'imperial') {
+        gewicht = gewicht / 2.20462;
+        lengte = lengte * 2.54;
+      }
+
+      lengte = lengte / 100; // cm to meters
       const bmi = gewicht / (lengte * lengte);
       let categorie = '';
 
@@ -214,6 +248,11 @@ Understanding your Body Mass Index is just the first step. For a deeper look int
       const resultaat = document.getElementById('resultaat');
       resultaat.innerHTML = `<strong>BMI: ${bmi.toFixed(1)}</strong><br>Category: ${categorie}`;
       resultaat.style.display = 'block';
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.body.setAttribute('data-theme', savedTheme);
     });
   </script>
 </body>
