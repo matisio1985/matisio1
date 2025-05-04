@@ -128,8 +128,11 @@
   </header>
 
   <main>
-    <div class="quote-box" id="quoteDisplay">Click the button to reveal your quote.</div>
-    <div class="challenge" id="challengeDisplay"></div>
+    
+    <textarea id="quoteBox" readonly style="width:100%; height:120px; font-size:1rem; padding:1rem; border-radius:8px; border:1px solid #ccc;">
+Click the button to reveal your quote.
+    </textarea>
+    
     <button class="btn" onclick="generateQuote()">Show Me a Quote</button>
 
     <div class="ads">
@@ -373,8 +376,8 @@
 
     function generateQuote() {
       const index = Math.floor(Math.random() * quotes.length);
-      document.getElementById("quoteDisplay").textContent = `"${quotes[index].quote}"`;
-      document.getElementById("challengeDisplay").textContent = `→ ${quotes[index].challenge}`;
+      document.getElementById("quoteBox").value = `"${quotes[index].quote}" + "\n→ " + quotes[index].challenge`;
+      
     }
 
     function toggleDarkMode() {
