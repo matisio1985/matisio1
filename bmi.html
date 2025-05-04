@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BMI Calculator – Body Mass Index Tool | MathijssenFit</title>
-  <meta name="description" content="Quickly calculate your Body Mass Index (BMI) and check your weight category. Use our free BMI calculator – by MathijssenFit.">
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free BMI Calculator for Adults & Children | MathijssenFit</title>
+  <meta name="description" content="Free BMI calculator for adults and children. Instantly calculate your Body Mass Index and see your health category. Includes child BMI support with age-based results.">
+  <meta name="keywords" content="BMI calculator, child BMI, BMI for kids, BMI for adults, healthy weight, body mass index calculator, free BMI tool, MathijssenFit" />
+  <meta name="author" content="MathijssenFit" />
+  <meta name="robots" content="index, follow" />
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-Q5S20EKJG9');
   </script>
 
-  <!-- Monetag -->
+  <!-- Monetag Ads -->
   <script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
   <script>
     (function(d,z,s){s.src='https://'+d+'/401/'+z;
@@ -26,15 +29,15 @@
 
   <style>
     :root {
-      --bg: #f8f9fa;
-      --text: #333;
+      --bg: #f9fafb;
+      --text: #222;
       --card: #fff;
       --accent: #007acc;
     }
 
     [data-theme="dark"] {
       --bg: #121212;
-      --text: #e0e0e0;
+      --text: #f0f0f0;
       --card: #1e1e1e;
       --accent: #4ea8de;
     }
@@ -47,30 +50,26 @@
     }
 
     .topbar {
-      position: sticky;
-      top: 0;
       background: linear-gradient(135deg, #007acc, #005c99);
       color: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      z-index: 999;
     }
 
     .topbar a, .topbar button {
       color: white;
-      text-decoration: none;
-      font-weight: bold;
       background: none;
       border: none;
+      font-weight: bold;
       cursor: pointer;
-      margin-left: 1rem;
+      text-decoration: none;
     }
 
     header {
       text-align: center;
-      padding: 2rem 1rem 1rem;
+      padding: 2rem 1rem;
     }
 
     main {
@@ -79,12 +78,11 @@
       padding: 2rem;
       background: var(--card);
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
 
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
+    h1, h2 {
+      margin-bottom: 1rem;
     }
 
     label {
@@ -128,26 +126,33 @@
       margin: 2rem 0;
       text-align: center;
     }
+
+    section {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    a {
+      color: var(--accent);
+      font-weight: bold;
+    }
   </style>
 </head>
 <body data-theme="light">
   <div class="topbar">
-    <div>
-      <a href="/">⬅ Home</a>
-    </div>
-    <div>
-      <button onclick="toggleDarkMode()">🌓 Dark mode</button>
-    </div>
+    <a href="/">⬅ Home</a>
+    <button onclick="toggleDarkMode()">🌓 Dark mode</button>
   </div>
 
   <header>
-    <h1>BMI Calculator – Check Your Body Mass Index</h1>
-    <p>Enter your height and weight to see your BMI and category instantly.</p>
+    <h1>Free BMI Calculator for Adults & Children</h1>
+    <p>Instantly calculate your BMI and see your weight category. Supports children and adults.</p>
   </header>
 
   <main>
-    <div style="text-align: center; margin-bottom: 1rem;">
-      <label for="unitToggle"><strong>Unit system:</strong></label>
+    <div style="text-align:center; margin-bottom: 1rem;">
+      <label><strong>Unit system:</strong></label>
       <select id="unitToggle">
         <option value="metric" selected>Metric (kg, cm)</option>
         <option value="imperial">Imperial (lbs, inches)</option>
@@ -168,32 +173,51 @@
         <input type="number" id="lengte" step="any" required>
       </label>
 
+      <label>Age (years)
+        <input type="number" id="leeftijd" min="0" max="120" required>
+      </label>
+
+      <label>Sex
+        <select id="geslacht">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </label>
+
       <button type="submit">Calculate BMI</button>
     </form>
 
     <div id="resultaat" class="result" style="display: none;"></div>
   </main>
 
-  <section style="max-width: 600px; margin: 2rem auto; padding: 1rem;">
+  <section>
     <h2>What is BMI?</h2>
-    <p>
-      BMI (Body Mass Index) is a simple formula used to evaluate if your weight is healthy for your height. It’s calculated by dividing your weight in kilograms by the square of your height in meters. This tool helps you find out if you are underweight, normal, overweight, or obese.
-    </p>
+    <p>BMI (Body Mass Index) is a number calculated from your weight and height. It's a useful indicator of body fatness and helps assess health risks.</p>
 
-    <h2>How to use this calculator</h2>
-    <p>
-      Enter your weight and height, then press "Calculate BMI". Your BMI will be shown instantly, along with a health category.
-    </p>
+    <h2>BMI for Adults (18+)</h2>
+    <ul>
+      <li><strong>Under 18.5:</strong> Underweight</li>
+      <li><strong>18.5 – 24.9:</strong> Normal weight</li>
+      <li><strong>25 – 29.9:</strong> Overweight</li>
+      <li><strong>30 or more:</strong> Obese</li>
+    </ul>
 
-    <h2>Why is BMI important?</h2>
-    <p>
-      Knowing your BMI can help you understand your health status. While it’s not a perfect measurement, it gives a general indication of body fat and potential health risks.
-    </p>
+    <h2>BMI for Children (&lt;18)</h2>
+    <p>Children's BMI is interpreted differently using age- and sex-specific growth charts. This tool gives a basic interpretation:</p>
+    <ul>
+      <li><strong>BMI under 14:</strong> Underweight (child)</li>
+      <li><strong>14 – 18:</strong> Normal weight (child)</li>
+      <li><strong>Over 18:</strong> Overweight/Obese (child)</li>
+    </ul>
+    <p>For medical accuracy, consult a doctor or use WHO/RIVM growth charts.</p>
 
-    <h2>Want to learn more about what your BMI really means?</h2>
+    <h2>Learn More</h2>
     <p>
-      Understanding your Body Mass Index is just the first step. For a deeper look into how BMI is calculated, what it indicates about your health, and its limitations, check out our detailed blog post:  
-      <a href="https://blogs.matisio.nl/2025/05/understanding-bmi-what-it-means-for.html" target="_blank" rel="noopener">Understanding BMI: What It Means for Your Health</a>.
+      Want to understand more about your BMI and what it means?  
+      Read our full guide here:  
+      <a href="https://blogs.matisio.nl/2025/05/understanding-bmi-what-it-means-for.html" target="_blank" rel="noopener">
+        Understanding BMI: What It Means for Your Health
+      </a>
     </p>
   </section>
 
@@ -229,6 +253,7 @@
       e.preventDefault();
       let gewicht = parseFloat(document.getElementById('gewicht').value);
       let lengte = parseFloat(document.getElementById('lengte').value);
+      const leeftijd = parseInt(document.getElementById('leeftijd').value);
       const unit = document.getElementById('unitToggle').value;
 
       if (unit === 'imperial') {
@@ -236,14 +261,20 @@
         lengte = lengte * 2.54;
       }
 
-      lengte = lengte / 100; // cm to meters
+      lengte = lengte / 100;
       const bmi = gewicht / (lengte * lengte);
       let categorie = '';
 
-      if (bmi < 18.5) categorie = 'Underweight';
-      else if (bmi < 25) categorie = 'Normal weight';
-      else if (bmi < 30) categorie = 'Overweight';
-      else categorie = 'Obese';
+      if (!isNaN(leeftijd) && leeftijd < 18) {
+        if (bmi < 14) categorie = 'Underweight (child)';
+        else if (bmi < 18) categorie = 'Normal weight (child)';
+        else categorie = 'Overweight/Obese (child)';
+      } else {
+        if (bmi < 18.5) categorie = 'Underweight';
+        else if (bmi < 25) categorie = 'Normal weight';
+        else if (bmi < 30) categorie = 'Overweight';
+        else categorie = 'Obese';
+      }
 
       const resultaat = document.getElementById('resultaat');
       resultaat.innerHTML = `<strong>BMI: ${bmi.toFixed(1)}</strong><br>Category: ${categorie}`;
