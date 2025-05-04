@@ -1,35 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ovulation Calculator – Predict Fertile Days | MathijssenFit</title>
-  <meta name="description" content="Use our ovulation calculator to estimate your fertile window and next ovulation date based on your last period and cycle length.">
-<!-- Google Analytics -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ovulation Calculator – Find Your Fertile Days | MathijssenFit</title>
+  <meta name="description" content="Free ovulation calculator to estimate your most fertile days and ovulation date. Use this tool to improve your chances of getting pregnant." />
+  <meta name="keywords" content="ovulation calculator, fertile days, pregnancy calculator, get pregnant, menstrual cycle, ovulation date, fertility tracker" />
+  <meta name="author" content="MathijssenFit" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-Q5S20EKJG9');
   </script>
-    <!-- Monetag -->
-      <script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
-      <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9289950,document.createElement('script'))</script>
+
+  <!-- Monetag -->
+  <script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
+  <script>
+    (function(d,z,s){s.src='https://'+d+'/401/'+z;
+    try{(document.body||document.documentElement).appendChild(s)}catch(e){}})
+    ('gizokraijaw.net',9289950,document.createElement('script'));
+  </script>
   <script src="https://vaugroar.com/act/files/tag.min.js?z=9289953" data-cfasync="false" async></script>
+
   <style>
     :root {
-      --bg: #f8f9fa;
-      --text: #333;
+      --bg: #f9fafb;
+      --text: #222;
       --card: #fff;
-      --accent: #007acc;
+      --accent: #d6336c;
     }
 
     [data-theme="dark"] {
       --bg: #121212;
-      --text: #e0e0e0;
+      --text: #f0f0f0;
       --card: #1e1e1e;
-      --accent: #4ea8de;
+      --accent: #ff6ea5;
     }
 
     body {
@@ -40,25 +50,21 @@
     }
 
     .topbar {
-      position: sticky;
-      top: 0;
-      background: linear-gradient(135deg, #007acc, #005c99);
+      background: linear-gradient(135deg, #d6336c, #b02a50);
       color: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      z-index: 999;
     }
 
     .topbar a, .topbar button {
       color: white;
-      text-decoration: none;
       font-weight: bold;
       background: none;
       border: none;
       cursor: pointer;
-      margin-left: 1rem;
+      text-decoration: none;
     }
 
     header {
@@ -72,13 +78,7 @@
       padding: 2rem;
       background: var(--card);
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
 
     label {
@@ -86,7 +86,7 @@
       margin-top: 1rem;
     }
 
-    input, select {
+    input {
       width: 100%;
       padding: 0.8rem;
       margin-top: 0.5rem;
@@ -107,79 +107,88 @@
     }
 
     button[type="submit"]:hover {
-      background: #005c99;
+      background: #b02a50;
     }
 
     .result {
       margin-top: 2rem;
       padding: 1.2rem;
-      background: #e6f7ff;
+      background: #ffe5ec;
       border-left: 5px solid var(--accent);
       border-radius: 6px;
     }
 
-    .ads {
-      margin: 2rem 0;
-      text-align: center;
+    section {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    a {
+      color: var(--accent);
+      font-weight: bold;
     }
   </style>
 </head>
 <body data-theme="light">
   <div class="topbar">
-    <div>
-      <a href="/">⬅ Home</a>
-    </div>
-    <div>
-      <button onclick="toggleDarkMode()">🌓 Dark mode</button>
-    </div>
+    <a href="/">⬅ Home</a>
+    <button onclick="toggleDarkMode()">🌓 Dark mode</button>
   </div>
 
   <header>
-    <h1>Ovulation Calculator</h1>
-    <p>Enter your last period date and cycle length to estimate your next ovulation and fertile days.</p>
+    <h1>Ovulation Calculator – Find Your Fertile Days</h1>
+    <p>
+      This free ovulation calculator helps you estimate your most fertile days based on your menstrual cycle. Enter your last period date and average cycle length to predict ovulation and increase your chances of getting pregnant.
+    </p>
   </header>
 
   <main>
-    <div class="ads">
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3167065596755326" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
     <form id="ovulationForm">
-      <label>First day of your last period
-        <input type="date" id="lastPeriod" required>
-      </label>
+      <label for="lastPeriod">First day of your last period</label>
+      <input type="date" id="lastPeriod" required>
 
-      <label>Average cycle length (in days)
-        <input type="number" id="cycleLength" min="21" max="35" value="28" required>
-      </label>
+      <label for="cycleLength">Average cycle length (in days)</label>
+      <input type="number" id="cycleLength" min="20" max="45" required>
 
       <button type="submit">Calculate Ovulation</button>
     </form>
 
     <div id="result" class="result" style="display: none;"></div>
-
-    <div class="ads">
-      
-    </div>
-
-    <section style="max-width: 600px; margin: 2rem auto; padding: 1rem;">
-      <h2>What is Ovulation?</h2>
-      <p>
-        Ovulation is the release of an egg from your ovary. It's the most fertile time of your menstrual cycle, and typically occurs about 14 days before your next period starts.
-      </p>
-
-      <h2>Why track ovulation?</h2>
-      <p>
-        Tracking ovulation helps improve your chances of getting pregnant. Knowing your fertile window can guide you in planning or preventing pregnancy naturally.
-      </p>
-
-      <h2>How does this calculator work?</h2>
-      <p>
-        By entering the first day of your last menstrual period and your average cycle length, this tool predicts your ovulation day and the days you're most likely to conceive.
-      </p>
-    </section>
   </main>
+
+  <section>
+    <h2>Understanding Your Fertile Window</h2>
+    <p>
+      Ovulation usually occurs about 14 days before your next period. Your fertile window includes the five days before ovulation and the day of ovulation itself. This calculator estimates your ovulation date based on the average cycle length you provide.
+    </p>
+
+    <h2>FAQ – Ovulation & Fertility</h2>
+
+    <h3>How accurate is this ovulation calculator?</h3>
+    <p>
+      It provides a good estimate based on averages, but individual cycles may vary. Use it as a guide alongside other fertility tracking methods.
+    </p>
+
+    <h3>Can I use it with irregular periods?</h3>
+    <p>
+      You can, but accuracy may be lower. Consider tracking additional fertility signs like basal body temperature or cervical mucus.
+    </p>
+
+    <h3>When am I most fertile?</h3>
+    <p>
+      You are most fertile in the 5 days leading up to ovulation and on the day of ovulation itself.
+    </p>
+
+    <h2>Learn More</h2>
+    <p>
+      Want to understand how ovulation affects fertility and how to get pregnant faster?  
+      Read our guide here:  
+      <a href="https://blogs.matisio.nl/2025/05/why-i-created-mathijssenfit-ovulation.html" target="_blank" rel="noopener">
+        Understanding Ovulation & Your Fertile Days
+      </a>
+    </p>
+  </section>
 
   <script>
     function toggleDarkMode() {
@@ -189,33 +198,35 @@
       localStorage.setItem('theme', newTheme);
     }
 
+    document.getElementById("ovulationForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const lastPeriod = new Date(document.getElementById("lastPeriod").value);
+      const cycleLength = parseInt(document.getElementById("cycleLength").value);
+
+      if (!lastPeriod || isNaN(cycleLength)) return;
+
+      const ovulationDate = new Date(lastPeriod);
+      ovulationDate.setDate(ovulationDate.getDate() + cycleLength - 14);
+
+      const fertileStart = new Date(ovulationDate);
+      fertileStart.setDate(fertileStart.getDate() - 5);
+
+      const fertileEnd = new Date(ovulationDate);
+
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const resultDiv = document.getElementById("result");
+
+      resultDiv.innerHTML = `
+        <strong>Estimated Ovulation:</strong> ${ovulationDate.toLocaleDateString(undefined, options)}<br>
+        <strong>Fertile Window:</strong> ${fertileStart.toLocaleDateString(undefined, options)} – ${fertileEnd.toLocaleDateString(undefined, options)}
+      `;
+      resultDiv.style.display = "block";
+    });
+
     document.addEventListener("DOMContentLoaded", () => {
       const savedTheme = localStorage.getItem('theme') || 'light';
       document.body.setAttribute('data-theme', savedTheme);
-    });
-
-    document.getElementById('ovulationForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const lastPeriod = new Date(document.getElementById('lastPeriod').value);
-      const cycleLength = parseInt(document.getElementById('cycleLength').value);
-
-      if (isNaN(lastPeriod.getTime()) || isNaN(cycleLength)) return;
-
-      const ovulationDate = new Date(lastPeriod);
-      ovulationDate.setDate(ovulationDate.getDate() + (cycleLength - 14));
-
-      const fertileStart = new Date(ovulationDate);
-      fertileStart.setDate(fertileStart.getDate() - 4);
-      const fertileEnd = new Date(ovulationDate);
-      fertileEnd.setDate(fertileEnd.getDate() + 1);
-
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      const resultText = `Estimated ovulation day: <strong>${ovulationDate.toLocaleDateString(undefined, options)}</strong><br>` +
-                         `Fertile window: <strong>${fertileStart.toLocaleDateString(undefined, options)} – ${fertileEnd.toLocaleDateString(undefined, options)}</strong>`;
-
-      const resultBox = document.getElementById('result');
-      resultBox.innerHTML = resultText;
-      resultBox.style.display = 'block';
     });
   </script>
 </body>
