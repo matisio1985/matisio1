@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://matisio.nl/sitemap.xml
