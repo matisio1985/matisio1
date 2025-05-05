@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q5S20EKJG9');</script>
+<!-- Monetag -->
+<script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
+<script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9289950,document.createElement('script'))</script>
+<script src="https://vaugroar.com/act/files/tag.min.js?z=9289953" data-cfasync="false" async></script>
+
+
+<title>Daily Water Intake Calculator | MathijssenFit</title>
+<meta name="description" content="Estimate your ideal daily water intake based on your body weight. Stay hydrated and support your health with this simple online calculator.">
+<meta name="keywords" content="water intake calculator, hydration calculator, drink water, daily water needs, how much water, health tools">
+<meta property="og:title" content="Daily Water Intake Calculator | MathijssenFit">
+<meta property="og:description" content="Use this free hydration calculator to know how much water you need per day. Based on your weight.">
+<meta property="og:url" content="https://matisio.nl/en/water-intake.html">
+<meta name="twitter:card" content="summary">
+
+<meta name="description" content="Estimate how much water you should drink per day.">
+
+<style>
+:root{--bg:#f9f9f9;--card:#fff;--text:#222;--accent:#007acc;}
+[data-theme="dark"]{--bg:#121212;--card:#1e1e1e;--text:#e0e0e0;--accent:#4ea8de;}
+body{margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);}
+header{background:linear-gradient(150deg,var(--accent),#34c759);color:#fff;text-align:center;padding:5rem 1rem 3rem;position:relative;}
+header::after{content:'';position:absolute;bottom:-40px;left:0;width:100%;height:80px;background:var(--bg);clip-path:polygon(0 0,100% 100%,0 100%);}
+.menu-btn{position:fixed;top:1rem;left:1rem;z-index:100;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:1.5rem;padding:.3rem .7rem;cursor:pointer;}
+.drawer{position:fixed;top:0;left:0;height:100vh;width:240px;background:var(--card);box-shadow:2px 0 8px rgba(0,0,0,.15);padding:4rem 1rem 1rem;display:flex;flex-direction:column;gap:1rem;transform:translateX(-100%);transition:transform .3s;z-index:90;}
+.drawer.open{transform:translateX(0);}
+.drawer a{color:var(--text);text-decoration:none;font-weight:bold;padding:.6rem .8rem;border-radius:6px;}
+.drawer a:hover{background:var(--bg);}
+@media(min-width:800px){.menu-btn{display:none;}.drawer{transform:translateX(0);position:static;height:auto;width:auto;flex-direction:row;background:none;box-shadow:none;padding:0;gap:1rem;align-items:center;}.drawer a{color:#fff;background:var(--accent);} .drawer a:hover{background:#005c99;color:#fff;} header{padding-top:7rem;}}
+main{max-width:600px;margin:3rem auto;padding:2rem;background:var(--card);border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.05);text-align:center;}
+footer{text-align:center;font-size:.9rem;color:#555;padding:2rem 1rem;}
+input,select{width:100%;padding:.8rem;margin-top:.5rem;border:1px solid #ccc;border-radius:8px;}
+button{padding:.8rem 1.2rem;border:none;border-radius:8px;background:var(--accent);color:#fff;margin:.5rem 0;cursor:pointer;}
+button:hover{background:#005c99;}
+</style>
+
+</head>
+<body data-theme="light">
+
+<button class="menu-btn" id="toggle">☰</button>
+<nav class="drawer" id="drawer">
+  <a href="/en/">🏠 Home</a>
+  <a href="/en/#health">💪 Health</a>
+  <a href="/en/#productivity">⏱️ Productivity</a>
+  <a href="/en/#utilities">🔧 Utilities</a>
+</nav>
+<script>
+const drawer=document.getElementById('drawer');
+document.getElementById('toggle').onclick=()=>drawer.classList.toggle('open');
+</script>
+
+<header>
+  <h1>💧 Daily Water Intake</h1>
+  <p>Estimate how much water you should drink per day.</p>
+</header>
+<main>
+  
+    <label>Weight (kg)
+      <input type="number" id="wt">
+    </label>
+    <div id="wout">–</div>
+    <button onclick="water()">Calculate</button>
+    
+</main>
+<section style="max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;">
+  <h2>Why Is Hydration Important?</h2>
+  <p>Water is essential for your health. It helps regulate body temperature, transport nutrients, support digestion, and cushion your joints. Without enough water, physical and mental performance declines — even mild dehydration can impact energy and focus.</p>
+
+  <h2>How This Calculator Works</h2>
+  <p>This tool estimates your daily water needs using the formula: 35 ml per kg of body weight. It gives a good general baseline that can be adjusted depending on climate, activity level, age, and diet.</p>
+
+  <h2>Tips to Drink More Water</h2>
+  <ul>
+    <li>Keep a bottle on your desk or in your bag</li>
+    <li>Drink a glass before each meal</li>
+    <li>Flavor your water with lemon or cucumber</li>
+    <li>Eat water-rich foods like fruit and vegetables</li>
+  </ul>
+
+  <h2>Helpful Related Tools</h2>
+  <ul>
+    <li><a href="/en/calorie-calculator.html">Calorie Calculator</a> – Supports your overall nutrition plan</li>
+    <li><a href="/en/bmi.html">BMI Calculator</a> – Balance your hydration with a healthy body weight</li>
+    <li><a href="/en/stopwatch.html">Stopwatch</a> – Use for timing workouts and water breaks</li>
+  </ul>
+</section>
+
+<section style="max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;">
+  <h2>Frequently Asked Questions</h2>
+  <h3>Is the calculation exact?</h3>
+  <p>It’s a helpful estimate. Your exact needs depend on health, activity level, and environment.</p>
+
+  <h3>Does it include water from food?</h3>
+  <p>Yes. It assumes your total daily water intake, including fruits, vegetables, and soups.</p>
+
+  <h3>Should I drink more if I exercise?</h3>
+  <p>Yes. You may need an extra 350–700 ml per 30 minutes of intense activity.</p>
+
+  <h3>Is drinking too much water harmful?</h3>
+  <p>Yes. Overhydration can cause low sodium (hyponatremia), but it's rare. Balance is key.</p>
+
+  <h3>Is this tool free?</h3>
+  <p>Yes. All tools from MathijssenFit are free, private, and available with no sign-up.</p>
+</section>
+
+<footer>&copy; 2025 MathijssenFit</footer>
+<script>
+function water(){const w=parseFloat(document.getElementById('wt').value);document.getElementById('wout').textContent=(w*35/1000).toFixed(2)+' L/day';}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the water intake result exact?", "acceptedAnswer": {"@type": "Answer", "text": "It's a general guideline based on your body weight. You may need more or less depending on activity and environment."}}, {"@type": "Question", "name": "Should I drink more if I exercise?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Increase intake during workouts, hot weather or illness."}}, {"@type": "Question", "name": "Does this include water from food?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Fruits, vegetables and meals all count toward your daily hydration."}}, {"@type": "Question", "name": "Is this calculator free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. MathijssenFit tools are free and privacy-respecting."}}, {"@type": "Question", "name": "Can I use this on mobile?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It works on all modern phones and tablets."}}]}
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q5S20EKJG9');</script>
+<!-- Monetag -->
+<script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
+<script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9289950,document.createElement('script'))</script>
+<script src="https://vaugroar.com/act/files/tag.min.js?z=9289953" data-cfasync="false" async></script>
+
+
+<title>Online Stopwatch | Simple Start & Reset Timer | MathijssenFit</title>
+<meta name="description" content="Free online stopwatch with start, stop, and reset buttons. Track time easily in your browser — great for productivity, workouts, and focus.">
+<meta name="keywords" content="stopwatch, online timer, productivity tracker, simple stopwatch, fitness timer, javascript timer, study timer">
+<meta property="og:title" content="Online Stopwatch | MathijssenFit">
+<meta property="og:description" content="Easy-to-use online stopwatch. Time your sessions or tasks with start, stop and reset options. No download needed.">
+<meta property="og:url" content="https://matisio.nl/en/stopwatch.html">
+<meta name="twitter:card" content="summary">
+
+<meta name="description" content="Simple start/stop stopwatch with lap times.">
+
+<style>
+:root{--bg:#f9f9f9;--card:#fff;--text:#222;--accent:#007acc;}
+[data-theme="dark"]{--bg:#121212;--card:#1e1e1e;--text:#e0e0e0;--accent:#4ea8de;}
+body{margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);}
+header{background:linear-gradient(150deg,var(--accent),#34c759);color:#fff;text-align:center;padding:5rem 1rem 3rem;position:relative;}
+header::after{content:'';position:absolute;bottom:-40px;left:0;width:100%;height:80px;background:var(--bg);clip-path:polygon(0 0,100% 100%,0 100%);}
+.menu-btn{position:fixed;top:1rem;left:1rem;z-index:100;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:1.5rem;padding:.3rem .7rem;cursor:pointer;}
+.drawer{position:fixed;top:0;left:0;height:100vh;width:240px;background:var(--card);box-shadow:2px 0 8px rgba(0,0,0,.15);padding:4rem 1rem 1rem;display:flex;flex-direction:column;gap:1rem;transform:translateX(-100%);transition:transform .3s;z-index:90;}
+.drawer.open{transform:translateX(0);}
+.drawer a{color:var(--text);text-decoration:none;font-weight:bold;padding:.6rem .8rem;border-radius:6px;}
+.drawer a:hover{background:var(--bg);}
+@media(min-width:800px){.menu-btn{display:none;}.drawer{transform:translateX(0);position:static;height:auto;width:auto;flex-direction:row;background:none;box-shadow:none;padding:0;gap:1rem;align-items:center;}.drawer a{color:#fff;background:var(--accent);} .drawer a:hover{background:#005c99;color:#fff;} header{padding-top:7rem;}}
+main{max-width:600px;margin:3rem auto;padding:2rem;background:var(--card);border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.05);text-align:center;}
+footer{text-align:center;font-size:.9rem;color:#555;padding:2rem 1rem;}
+input,select{width:100%;padding:.8rem;margin-top:.5rem;border:1px solid #ccc;border-radius:8px;}
+button{padding:.8rem 1.2rem;border:none;border-radius:8px;background:var(--accent);color:#fff;margin:.5rem 0;cursor:pointer;}
+button:hover{background:#005c99;}
+</style>
+
+</head>
+<body data-theme="light">
+
+<button class="menu-btn" id="toggle">☰</button>
+<nav class="drawer" id="drawer">
+  <a href="/en/">🏠 Home</a>
+  <a href="/en/#health">💪 Health</a>
+  <a href="/en/#productivity">⏱️ Productivity</a>
+  <a href="/en/#utilities">🔧 Utilities</a>
+</nav>
+<script>
+const drawer=document.getElementById('drawer');
+document.getElementById('toggle').onclick=()=>drawer.classList.toggle('open');
+</script>
+
+<header>
+  <h1>⏱️ Stopwatch</h1>
+  <p>Simple start/stop stopwatch with lap times.</p>
+</header>
+<main>
+  
+    <div id="swdisp">00:00:00</div>
+    <button onclick="swStart()">Start</button>
+    <button onclick="swStop()">Stop</button>
+    <button onclick="swReset()">Reset</button>
+    
+</main>
+<section style="max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;">
+  <h2>Why Use This Online Stopwatch?</h2>
+  <p>This stopwatch helps you track time in a simple, distraction-free environment. Whether you're timing your Pomodoro sessions, workouts, or study blocks — it's always accessible and easy to use.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Start, stop, and reset functionality</li>
+    <li>Accurate to the second using built-in browser timing</li>
+    <li>No account or installation needed</li>
+    <li>Works on desktop and mobile devices</li>
+  </ul>
+
+  <h2>Popular Uses</h2>
+  <ul>
+    <li>Track time during workouts or HIIT sessions</li>
+    <li>Measure study or productivity blocks</li>
+    <li>Use with the <a href="/en/pomodoro.html">Pomodoro Timer</a> to track breaks</li>
+    <li>Measure time for games or speed drills</li>
+  </ul>
+
+  <h2>Other Tools You Might Like</h2>
+  <ul>
+    <li><a href="/en/countdown.html">Countdown Timer</a> – Count down to a goal or deadline</li>
+    <li><a href="/en/random-number.html">Random Number Generator</a> – Great for games and decisions</li>
+    <li><a href="/en/percentage.html">Percentage Calculator</a> – Simple math tool for finance and stats</li>
+  </ul>
+</section>
+
+<section style="max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;">
+  <h2>Frequently Asked Questions</h2>
+  <h3>Will this stopwatch keep running in the background?</h3>
+  <p>No. It will pause if the page is closed or refreshed. Keep the tab open for continuous timing.</p>
+
+  <h3>Is it free?</h3>
+  <p>Yes. This stopwatch is 100% free and runs entirely in your browser.</p>
+
+  <h3>Does it support laps?</h3>
+  <p>No. This version only supports start, stop, and reset functionality.</p>
+
+  <h3>Can I use it on my phone?</h3>
+  <p>Yes. It works on all modern mobile devices and tablets.</p>
+
+  <h3>Is this stopwatch accurate?</h3>
+  <p>Yes, it uses JavaScript’s timer functions which are reliable for general use.</p>
+</section>
+
+<footer>&copy; 2025 MathijssenFit</footer>
+<script>
+let sw=0,swInt;
+function swUpd(){sw++;const h=String(Math.floor(sw/3600)).padStart(2,'0');const m=String(Math.floor(sw/60)%60).padStart(2,'0');const s=String(sw%60).padStart(2,'0');document.getElementById('swdisp').textContent=`${h}:${m}:${s}`;}
+function swStart(){clearInterval(swInt);swInt=setInterval(swUpd,1000);}
+function swStop(){clearInterval(swInt);}
+function swReset(){sw=0;swUpd();}
+document.addEventListener('DOMContentLoaded',swReset);
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Will this stopwatch run in the background?", "acceptedAnswer": {"@type": "Answer", "text": "No, it only tracks time while the tab is open and active."}}, {"@type": "Question", "name": "Is it free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, it's free to use and does not require installation."}}, {"@type": "Question", "name": "Does it support laps?", "acceptedAnswer": {"@type": "Answer", "text": "No, it provides basic time tracking without lap functionality."}}, {"@type": "Question", "name": "Can I use it on mobile?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, it's optimized for all major browsers and devices."}}, {"@type": "Question", "name": "Is this stopwatch accurate?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, it's based on native browser timing, suitable for casual and professional use."}}]}
+</script>
+</body>
+</html>

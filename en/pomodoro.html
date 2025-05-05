@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍅 Free Pomodoro Timer | MathijssenFit</title>
+<meta name="description" content="Free 25‑minute Pomodoro timer with 5‑minute breaks. Boost productivity and stay focused.">
+<meta name="keywords" content="Pomodoro timer, 25 minute timer, productivity timer, focus tool, study timer, MathijssenFit">
+<link rel="alternate" hreflang="nl" href="https://matisio.nl/nl/pomodoro.html">
+<link rel="alternate" hreflang="en" href="https://matisio.nl/en/pomodoro.html">
+<link rel="alternate" hreflang="x-default" href="https://matisio.nl/en/pomodoro.html">
+<meta property="og:title" content="Free Pomodoro Timer | MathijssenFit">
+<meta property="og:description" content="Boost focus with 25‑minute Pomodoro sessions and 5‑minute breaks.">
+<meta property="og:url" content="https://matisio.nl/en/pomodoro.html">
+<meta property="og:image" content="https://matisio.nl/assets/og/pomodoro.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q5S20EKJG9');
+</script>
+
+<!-- Monetag -->
+<script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
+<script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9289950,document.createElement('script'))</script>
+<script src="https://vaugroar.com/act/files/tag.min.js?z=9289953" data-cfasync="false" async></script>
+
+<style>
+:root{--bg:#f9f9f9;--card:#fff;--text:#222;--accent:#e74c3c;}
+[data-theme="dark"]{--bg:#121212;--card:#1e1e1e;--text:#e0e0e0;--accent:#ff6b54;}
+body{margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);}
+header{background:linear-gradient(150deg,var(--accent),#34c759);color:#fff;text-align:center;padding:5rem 1rem 3rem;position:relative;}
+header::after{content:'';position:absolute;bottom:-40px;left:0;width:100%;height:80px;background:var(--bg);clip-path:polygon(0 0,100% 100%,0 100%);}
+.menu-btn{position:fixed;top:1rem;left:1rem;z-index:100;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:1.5rem;padding:.3rem .7rem;cursor:pointer;}
+.drawer{position:fixed;top:0;left:0;height:100vh;width:240px;background:var(--card);box-shadow:2px 0 8px rgba(0,0,0,.15);padding:4rem 1rem 1rem;display:flex;flex-direction:column;gap:1rem;transform:translateX(-100%);transition:transform .3s;z-index:90;}
+.drawer.open{transform:translateX(0);}
+.drawer a{color:var(--text);text-decoration:none;font-weight:bold;padding:.6rem .8rem;border-radius:6px;}
+.drawer a:hover{background:var(--bg);}
+@media(min-width:800px){
+  .menu-btn{display:none;}
+  .drawer{transform:translateX(0);position:static;height:auto;width:auto;flex-direction:row;background:none;box-shadow:none;padding:0;gap:1rem;align-items:center;}
+  .drawer a{color:#fff;background:var(--accent);}
+  .drawer a:hover{background:#c0392b;color:#fff;}
+  header{padding-top:7rem;}
+}
+main{max-width:600px;margin:3rem auto;padding:2rem;background:var(--card);border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.05);text-align:center;}
+#display{font-size:3rem;margin:2rem 0;}
+.btns button{padding:.8rem 1.5rem;margin:.5rem;border:none;border-radius:8px;background:var(--accent);color:#fff;font-size:1rem;cursor:pointer;}
+.btns button:hover{background:#c0392b;}
+section{max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;}
+footer{text-align:center;font-size:.9rem;color:#555;padding:2rem 1rem;}
+</style>
+</head>
+<body data-theme="light">
+<button class="menu-btn" id="toggle">☰</button>
+<nav class="drawer" id="drawer">
+  <a href="/en/">🏠 Home</a>
+  <a href="/en/#productivity">⏱️ Productivity</a>
+  <a href="/en/#health">💪 Health</a>
+  <a href="/en/countdown.html">⏳ Countdown</a>
+  <a href="/en/calorie-calculator.html">🔥 Calorie Calculator</a>
+</nav>
+
+<header>
+  <h1>🍅 Pomodoro Timer</h1>
+  <p>25‑minute work blocks and 5‑minute breaks.</p>
+</header>
+
+<main>
+  <div id="display">25:00</div>
+  <div style="margin-bottom:1rem;">
+    <label>Work (min):
+      <input type="number" id="workInput" value="25" min="5" max="90" style="width:4rem;padding:.4rem;margin-left:.3rem;">
+    </label>
+    <label style="margin-left:1rem;">Break (min):
+      <input type="number" id="breakInput" value="5" min="1" max="30" style="width:4rem;padding:.4rem;margin-left:.3rem;">
+    </label>
+  </div>
+
+  <div class="btns">
+    <button onclick="startTimer()">Start</button>
+    <button onclick="resetTimer()">Reset</button>
+  </div>
+</main>
+
+<section>
+  <h2>What Is the Pomodoro Technique?</h2>
+  <p>Alternates <strong>25‑minute focus sessions</strong> with <strong>5‑minute breaks</strong>. After four rounds, take a longer rest.</p>
+
+  <h2>Quick‑Start Guide</h2>
+  <p><a href="https://blogs.matisio.nl/2025/05/boost-your-focus-in-25-minutes.html" target="_blank">Boost Your Focus in 25 Minutes</a></p>
+</section>
+<section>
+  <h2>Benefits of the Pomodoro Technique</h2>
+  <ul>
+    <li><strong>Higher focus:</strong> short sprints prevent mental fatigue and context switching.</li>
+    <li><strong>Built‑in reward:</strong> mini breaks give your brain dopamine hits, reinforcing consistency.</li>
+    <li><strong>Better time awareness:</strong> seeing the timer countdown makes you value every minute.</li>
+    <li><strong>Procrastination killer:</strong> 25 minutes feels “easy to start,” lowering resistance.</li>
+  </ul>
+
+  <h2>Customising Intervals</h2>
+  <p>Adjust the <strong>work</strong> and <strong>break</strong> minutes above (1–90). Press Reset to apply.</p>
+  <h2>Common Questions</h2>
+  <dl>
+    <dt>Should I pause the timer if I’m interrupted?</dt>
+    <dd>No. Reset only if the interruption is urgent. Otherwise jot it down and keep working.</dd>
+    <dt>How many Pomodoros make a full workday?</dt>
+    <dd>On average 12–14 Pomodoros (6–7 hours focused work) including breaks.</dd>
+  </dl>
+</section>
+
+
+<footer>&copy; 2025 MathijssenFit</footer>
+
+<script>
+const d=document,drawer=d.getElementById('drawer');
+d.getElementById('toggle').onclick=()=>drawer.classList.toggle('open');
+
+let workSec=1500,breakSec=300,total=1500,current='work',timer;
+function update(){
+  const m=String(Math.floor(total/60)).padStart(2,'0');
+  const s=String(total%60).padStart(2,'0');
+  d.getElementById('display').textContent=`${m}:${s}`;
+}
+function readSettings(){
+  workSec=(parseInt(d.getElementById('workInput').value)||25)*60;
+  breakSec=(parseInt(d.getElementById('breakInput').value)||5)*60;
+  total=workSec;current='work';
+}
+function tick(){
+  if(total>0){total--;update();}
+  else{
+    clearInterval(timer);
+    if(current==='work'){
+      alert("Session done! Break time.");
+      current='break';total=breakSec;update();startTimer();
+    }else{
+      alert("Break over! Back to work.");
+      current='work';total=workSec;update();startTimer();
+    }
+  }
+}
+function startTimer(){
+  clearInterval(timer);
+  if(current==='work' && total===1500) readSettings();
+  timer=setInterval(tick,1000);
+}
+function resetTimer(){
+  clearInterval(timer);
+  readSettings();
+  update();
+}
+d.addEventListener('DOMContentLoaded',()=>{update();});
+</script>
+
+
+<script>
+const d=document;const drawer=d.getElementById('drawer');d.getElementById('toggle').onclick=()=>drawer.classList.toggle('open');
+d.addEventListener('DOMContentLoaded',()=>{update();});
+let t=1500,i;
+function update(){const m=String(Math.floor(t/60)).padStart(2,'0');const s=String(t%60).padStart(2,'0');d.getElementById('display').textContent=`${m}:${s}`;}
+function tick(){if(t>0){t--;update();}else{clearInterval(i);alert('Time\'s up!');}}
+function startTimer(){clearInterval(i);i=setInterval(tick,1000);}
+function resetTimer(){clearInterval(i);t=1500;update();}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a Pomodoro?", "acceptedAnswer": {"@type": "Answer", "text": "A 25‑minute focused work interval followed by a 5‑minute break."}}, {"@type": "Question", "name": "How many Pomodoros fit in 8 hours?", "acceptedAnswer": {"@type": "Answer", "text": "Roughly 13–14 Pomodoros including breaks."}}, {"@type": "Question", "name": "Can I change the timer length?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Adjust the JavaScript variable 'total' to your preferred seconds."}}]}
+</script>
+</body>
+</html>

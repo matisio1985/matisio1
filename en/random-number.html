@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q5S20EKJG9');</script>
+<!-- Monetag -->
+<script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
+<script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9289950,document.createElement('script'))</script>
+<script src="https://vaugroar.com/act/files/tag.min.js?z=9289953" data-cfasync="false" async></script>
+
+
+<title>Random Number Generator | Generate Numbers in Any Range | MathijssenFit</title>
+<meta name="description" content="Instantly generate a random number between any minimum and maximum values. Perfect for games, decisions, or simulations. Free and browser-based.">
+<meta name="keywords" content="random number generator, RNG, generate number, number picker, math tool, lottery picker, number selector">
+<meta property="og:title" content="Random Number Generator | MathijssenFit">
+<meta property="og:description" content="Use this free online RNG to generate numbers in any range. No download, no data saved.">
+<meta property="og:url" content="https://matisio.nl/en/random-number.html">
+<meta name="twitter:card" content="summary">
+
+<meta name="description" content="Generate a random number in your chosen range.">
+
+<style>
+:root{--bg:#f9f9f9;--card:#fff;--text:#222;--accent:#007acc;}
+[data-theme="dark"]{--bg:#121212;--card:#1e1e1e;--text:#e0e0e0;--accent:#4ea8de;}
+body{margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);}
+header{background:linear-gradient(150deg,var(--accent),#34c759);color:#fff;text-align:center;padding:5rem 1rem 3rem;position:relative;}
+header::after{content:'';position:absolute;bottom:-40px;left:0;width:100%;height:80px;background:var(--bg);clip-path:polygon(0 0,100% 100%,0 100%);}
+.menu-btn{position:fixed;top:1rem;left:1rem;z-index:100;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:1.5rem;padding:.3rem .7rem;cursor:pointer;}
+.drawer{position:fixed;top:0;left:0;height:100vh;width:240px;background:var(--card);box-shadow:2px 0 8px rgba(0,0,0,.15);padding:4rem 1rem 1rem;display:flex;flex-direction:column;gap:1rem;transform:translateX(-100%);transition:transform .3s;z-index:90;}
+.drawer.open{transform:translateX(0);}
+.drawer a{color:var(--text);text-decoration:none;font-weight:bold;padding:.6rem .8rem;border-radius:6px;}
+.drawer a:hover{background:var(--bg);}
+@media(min-width:800px){.menu-btn{display:none;}.drawer{transform:translateX(0);position:static;height:auto;width:auto;flex-direction:row;background:none;box-shadow:none;padding:0;gap:1rem;align-items:center;}.drawer a{color:#fff;background:var(--accent);} .drawer a:hover{background:#005c99;color:#fff;} header{padding-top:7rem;}}
+main{max-width:600px;margin:3rem auto;padding:2rem;background:var(--card);border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.05);text-align:center;}
+footer{text-align:center;font-size:.9rem;color:#555;padding:2rem 1rem;}
+input,select{width:100%;padding:.8rem;margin-top:.5rem;border:1px solid #ccc;border-radius:8px;}
+button{padding:.8rem 1.2rem;border:none;border-radius:8px;background:var(--accent);color:#fff;margin:.5rem 0;cursor:pointer;}
+button:hover{background:#005c99;}
+</style>
+
+</head>
+<body data-theme="light">
+
+<button class="menu-btn" id="toggle">☰</button>
+<nav class="drawer" id="drawer">
+  <a href="/en/">🏠 Home</a>
+  <a href="/en/#health">💪 Health</a>
+  <a href="/en/#productivity">⏱️ Productivity</a>
+  <a href="/en/#utilities">🔧 Utilities</a>
+</nav>
+<script>
+const drawer=document.getElementById('drawer');
+document.getElementById('toggle').onclick=()=>drawer.classList.toggle('open');
+</script>
+
+<header>
+  <h1>🎲 Random Number Generator</h1>
+  <p>Generate a random number in your chosen range.</p>
+</header>
+<main>
+  
+    <label>Min
+      <input type="number" id="rmin" value="1">
+    </label>
+    <label>Max
+      <input type="number" id="rmax" value="10">
+    </label>
+    <div id="rout">–</div>
+    <button onclick="rand()">Generate</button>
+    
+
+<section style="max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;">
+  <h2>Why Use a Random Number Generator?</h2>
+  <p>Random number generators (RNGs) are useful in countless situations — from decision-making to programming and education. This tool is simple, lightweight, and works in any modern browser.</p>
+
+  <h2>Common Use Cases</h2>
+  <ul>
+    <li>Choosing winners in giveaways or raffles</li>
+    <li>Generating lottery numbers</li>
+    <li>Picking items or tasks randomly</li>
+    <li>Creating randomized events in games</li>
+    <li>Teaching students about probability</li>
+  </ul>
+
+  <h2>How It Works</h2>
+  <p>You simply enter a minimum and maximum value, then click “Generate.” The tool uses JavaScript’s native math function to produce a random integer between those bounds. All done instantly in your browser — no server communication involved.</p>
+
+  <h2>Try These Related Tools</h2>
+  <ul>
+    <li><a href="/en/countdown.html">Countdown Timer</a> – Time your tasks or breaks.</li>
+    <li><a href="/en/percentage.html">Percentage Calculator</a> – Useful for scoring and statistics.</li>
+    <li><a href="/en/date-calculator.html">Date Calculator</a> – Work with time and ranges.</li>
+  </ul>
+</section>
+
+<section style="max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;">
+  <h2>Frequently Asked Questions</h2>
+  <h3>Is this truly random?</h3>
+  <p>This tool uses pseudo-random number generation via JavaScript. It's suitable for general use but not for cryptographic security.</p>
+
+  <h3>Can I use decimals?</h3>
+  <p>No, this version only supports whole numbers. A decimal version may be added later.</p>
+
+  <h3>Can I generate multiple numbers?</h3>
+  <p>This version produces one number at a time. For batch generation, stay tuned!</p>
+
+  <h3>Does it store any data?</h3>
+  <p>No. Nothing is saved or uploaded — it’s fully private and local.</p>
+
+  <h3>Is it free?</h3>
+  <p>Yes. All tools on MathijssenFit are free, browser-based, and require no sign-up.</p>
+</section>
+</main>
+<footer>&copy; 2025 MathijssenFit</footer>
+<script>
+function rand(){const a=parseInt(document.getElementById('rmin').value);const b=parseInt(document.getElementById('rmax').value);if(b>=a){document.getElementById('rout').textContent=Math.floor(Math.random()*(b-a+1))+a;}else{alert('Max must be >= Min');}}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this truly random?", "acceptedAnswer": {"@type": "Answer", "text": "It uses pseudo-random logic via JavaScript. It\u2019s good for casual use, but not cryptography."}}, {"@type": "Question", "name": "Can I use decimals?", "acceptedAnswer": {"@type": "Answer", "text": "Not in this version \u2014 only whole integers are supported."}}, {"@type": "Question", "name": "Can I generate multiple numbers?", "acceptedAnswer": {"@type": "Answer", "text": "Currently, this tool outputs one number at a time."}}, {"@type": "Question", "name": "Is my input stored?", "acceptedAnswer": {"@type": "Answer", "text": "No. It runs locally in your browser and stores nothing."}}, {"@type": "Question", "name": "Is this RNG tool free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. This tool is free, secure, and ad-supported."}}]}
+</script>
+</body>
+</html>

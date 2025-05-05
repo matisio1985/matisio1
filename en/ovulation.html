@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q5S20EKJG9');</script>
+<!-- Monetag -->
+<script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
+<script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9289950,document.createElement('script'))</script>
+<script src="https://vaugroar.com/act/files/tag.min.js?z=9289953" data-cfasync="false" async></script>
+
+
+<title>Ovulation & Fertile Window Calculator | MathijssenFit</title>
+<meta name="description" content="Estimate your most fertile days based on your last period and cycle length. Plan or avoid pregnancy with this easy ovulation calculator.">
+<meta name="keywords" content="ovulation calculator, fertile window, fertility tracker, period cycle, pregnancy planning">
+<meta property="og:title" content="Ovulation Calculator | MathijssenFit">
+<meta property="og:description" content="Quickly estimate your fertile window based on your cycle.">
+<meta property="og:url" content="https://matisio.nl/en/ovulation.html">
+<meta name="twitter:card" content="summary">
+
+<meta name="description" content="Estimate your fertile window.">
+
+<style>
+:root{--bg:#f9f9f9;--card:#fff;--text:#222;--accent:#007acc;}
+[data-theme="dark"]{--bg:#121212;--card:#1e1e1e;--text:#e0e0e0;--accent:#4ea8de;}
+body{margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);}
+header{background:linear-gradient(150deg,var(--accent),#34c759);color:#fff;text-align:center;padding:5rem 1rem 3rem;position:relative;}
+header::after{content:'';position:absolute;bottom:-40px;left:0;width:100%;height:80px;background:var(--bg);clip-path:polygon(0 0,100% 100%,0 100%);}
+.menu-btn{position:fixed;top:1rem;left:1rem;z-index:100;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:1.5rem;padding:.3rem .7rem;cursor:pointer;}
+.drawer{position:fixed;top:0;left:0;height:100vh;width:240px;background:var(--card);box-shadow:2px 0 8px rgba(0,0,0,.15);padding:4rem 1rem 1rem;display:flex;flex-direction:column;gap:1rem;transform:translateX(-100%);transition:transform .3s;z-index:90;}
+.drawer.open{transform:translateX(0);}
+.drawer a{color:var(--text);text-decoration:none;font-weight:bold;padding:.6rem .8rem;border-radius:6px;}
+.drawer a:hover{background:var(--bg);}
+@media(min-width:800px){.menu-btn{display:none;}.drawer{transform:translateX(0);position:static;height:auto;width:auto;flex-direction:row;background:none;box-shadow:none;padding:0;gap:1rem;align-items:center;}.drawer a{color:#fff;background:var(--accent);} .drawer a:hover{background:#005c99;color:#fff;} header{padding-top:7rem;}}
+main{max-width:600px;margin:3rem auto;padding:2rem;background:var(--card);border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.05);text-align:center;}
+footer{text-align:center;font-size:.9rem;color:#555;padding:2rem 1rem;}
+input,select{width:100%;padding:.8rem;margin-top:.5rem;border:1px solid #ccc;border-radius:8px;}
+button{padding:.8rem 1.2rem;border:none;border-radius:8px;background:var(--accent);color:#fff;margin:.5rem 0;cursor:pointer;}
+button:hover{background:#005c99;}
+</style>
+
+</head>
+<body data-theme="light">
+
+<button class="menu-btn" id="toggle">☰</button>
+<nav class="drawer" id="drawer">
+  <a href="/en/">🏠 Home</a>
+  <a href="/en/#health">💪 Health</a>
+  <a href="/en/#productivity">⏱️ Productivity</a>
+  <a href="/en/#utilities">🔧 Utilities</a>
+</nav>
+<script>
+const drawer=document.getElementById('drawer');
+document.getElementById('toggle').onclick=()=>drawer.classList.toggle('open');
+</script>
+
+<header>
+  <h1>👶 Ovulation Calculator</h1>
+  <p>Estimate your fertile window.</p>
+</header>
+<main>
+  
+    <label>First day of last period
+      <input type="date" id="pstart">
+    </label>
+    <label>Cycle length (days)
+      <input type="number" id="cycle" value="28">
+    </label>
+    <div id="ovout">–</div>
+    <button onclick="ovu()">Calculate</button>
+    
+</main>
+<section style="max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;">
+  <h2>About This Tool</h2>
+  <p>This ovulation calculator estimates your most fertile days based on the first day of your last menstrual period and your average cycle length. It assumes ovulation occurs 14 days before your next period.</p>
+
+  <h2>Why Track Ovulation?</h2>
+  <p>Understanding your fertile window can improve your chances of pregnancy or help avoid it. Timing is everything when planning conception.</p>
+
+  <h2>Fertile Window Explained</h2>
+  <p>Your fertile window is the 5 days before ovulation and the day of ovulation itself. Sperm can survive up to 5 days inside the body, but the egg lives only 12–24 hours after release.</p>
+
+  <h2>Learn More</h2>
+  <p>Read our full blog about fertility and ovulation here → 
+    <a href="https://blogs.matisio.nl/2025/05/understanding-ovulation-and-fertility.html" target="_blank">Ovulation & Fertility</a>
+  </p>
+</section>
+
+<footer>&copy; 2025 MathijssenFit</footer>
+<script>
+function ovu(){const start=new Date(document.getElementById('pstart').value);const len=parseInt(document.getElementById('cycle').value)||28;const ovu=new Date(start.getTime()+((len-14)*24*60*60*1000));const fertileStart=new Date(ovu.getTime()-(4*24*60*60*1000));const fertileEnd=new Date(ovu.getTime()+(1*24*60*60*1000));document.getElementById('ovout').textContent='Fertile: '+fertileStart.toLocaleDateString()+' - '+fertileEnd.toLocaleDateString()+' | Ovulation: '+ovu.toLocaleDateString();}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How does the ovulation calculator work?", "acceptedAnswer": {"@type": "Answer", "text": "It estimates ovulation by counting back 14 days from the next expected period."}}, {"@type": "Question", "name": "Can this tool help me get pregnant?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Tracking your fertile days can improve your chances of conception."}}, {"@type": "Question", "name": "Is this calculator suitable for irregular cycles?", "acceptedAnswer": {"@type": "Answer", "text": "It\u2019s best for regular cycles. For irregular ones, consult a healthcare provider."}}]}
+</script>
+</body>
+</html>
