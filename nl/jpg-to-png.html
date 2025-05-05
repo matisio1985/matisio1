@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q5S20EKJG9');</script>
+<!-- Monetag -->
+<script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
+<script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9289950,document.createElement('script'))</script>
+<script src="https://vaugroar.com/act/files/tag.min.js?z=9289953" data-cfasync="false" async></script>
+
+
+<title>JPG naar PNG Converter | MathijssenFit</title>
+<meta name="description" content="Converteer JPG-afbeeldingen gratis naar PNG-formaat van hoge kwaliteit. Snel, veilig en volledig in je browser — zonder uploads.">
+<meta name="keywords" content="jpg to png, image converter, convert jpg, png format, image compression, client-side tool">
+<meta property="og:title" content="JPG naar PNG Converter | MathijssenFit">
+<meta property="og:description" content="Easily convert your JPG images to PNG format in seconds. All processing happens in your browser.">
+<meta property="og:url" content="https://matisio.nl/en/jpg-to-png.html">
+<meta name="twitter:card" content="summary">
+
+<meta name="description" content="Converteer een JPG-afbeelding naar PNG-formaat (lokaal in je browser).">
+
+<style>
+:root{--bg:#f9f9f9;--card:#fff;--text:#222;--accent:#007acc;}
+[data-theme="dark"]{--bg:#121212;--card:#1e1e1e;--text:#e0e0e0;--accent:#4ea8de;}
+body{margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);}
+header{background:linear-gradient(150deg,var(--accent),#34c759);color:#fff;text-align:center;padding:5rem 1rem 3rem;position:relative;}
+header::after{content:'';position:absolute;bottom:-40px;left:0;width:100%;height:80px;background:var(--bg);clip-path:polygon(0 0,100% 100%,0 100%);}
+.menu-btn{position:fixed;top:1rem;left:1rem;z-index:100;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:1.5rem;padding:.3rem .7rem;cursor:pointer;}
+.drawer{position:fixed;top:0;left:0;height:100vh;width:240px;background:var(--card);box-shadow:2px 0 8px rgba(0,0,0,.15);padding:4rem 1rem 1rem;display:flex;flex-direction:column;gap:1rem;transform:translateX(-100%);transition:transform .3s;z-index:90;}
+.drawer.open{transform:translateX(0);}
+.drawer a{color:var(--text);text-decoration:none;font-weight:bold;padding:.6rem .8rem;border-radius:6px;}
+.drawer a:hover{background:var(--bg);}
+@media(min-width:800px){.menu-btn{display:none;}.drawer{transform:translateX(0);position:static;height:auto;width:auto;flex-direction:row;background:none;box-shadow:none;padding:0;gap:1rem;align-items:center;}.drawer a{color:#fff;background:var(--accent);} .drawer a:hover{background:#005c99;color:#fff;} header{padding-top:7rem;}}
+main{max-width:600px;margin:3rem auto;padding:2rem;background:var(--card);border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.05);text-align:center;}
+footer{text-align:center;font-size:.9rem;color:#555;padding:2rem 1rem;}
+input,select{width:100%;padding:.8rem;margin-top:.5rem;border:1px solid #ccc;border-radius:8px;}
+button{padding:.8rem 1.2rem;border:none;border-radius:8px;background:var(--accent);color:#fff;margin:.5rem 0;cursor:pointer;}
+button:hover{background:#005c99;}
+</style>
+
+</head>
+<body data-theme="light">
+
+<button class="menu-btn" id="toggle">☰</button>
+<nav class="drawer" id="drawer">
+  <a href="/en/">🏠 Home</a>
+  <a href="/en/#health">💪 Health</a>
+  <a href="/en/#productivity">⏱️ Productivity</a>
+  <a href="/en/#utilities">🔧 Utilities</a>
+</nav>
+<script>
+const drawer=document.getElementById('drawer');
+document.getElementById('toggle').onclick=()=>drawer.classList.toggle('open');
+</script>
+
+<header>
+  <h1>🖼️ JPG → PNG Converter</h1>
+  <p>Converteer een JPG-afbeelding naar PNG-formaat (lokaal in je browser).</p>
+</header>
+<main>
+  
+    <input type="file" id="imginp" accept="image/jpeg">
+    <canvas id="cnv" style="display:none;"></canvas>
+    <div><a id="download" style="display:none;">Download PNG</a></div>
+    
+</main>
+<section style="max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;">
+  <h2>Waarom JPG naar PNG converteren?</h2>
+  <p>JPG is een compressieformaat waarbij beeldkwaliteit verloren kan gaan, terwijl PNG verliesloos is en transparantie ondersteunt. Als je afbeeldingen bewerkt, gebruikt in ontwerpen of scherpe kwaliteit nodig hebt, is PNG een betere keuze. Lees meer in onze blog <a href="https://blogs.matisio.nl/2025/05/why-i-finally-switched-from-jpg-to-png.html" target="_blank">Waarom ik uiteindelijk overstapte van JPG naar PNG</a>.</p>
+
+  <h2>Voordelen van onze converter</h2>
+  <ul>
+    <li>Geen beelduploads — alles gebeurt in je browser</li>
+    <li>Volledig gratis en privé</li>
+    <li>Ondersteunt alle gangbare JPG-bestanden van camera’s, schermafbeeldingen of export</li>
+    <li>Direct een PNG-bestand klaar om te downloaden</li>
+  </ul>
+
+  <h2>Hoe het werkt</h2>
+  <p>Wanneer je een JPG-bestand uploadt, wordt de afbeelding getekend op een verborgen canvas met JavaScript. Vervolgens wordt deze lokaal opgeslagen als PNG — je afbeelding verlaat nooit je apparaat.</p>
+
+  <h2>Probeer andere handige tools</h2>
+  <ul>
+    <li><a href="/en/percentage.html">Percentage Calculator</a> – Handig bij het schalen of verkleinen van afbeeldingen.</li>
+    <li><a href="/en/random-number.html">Willekeurige Getallengenerator</a> – Leuk en nuttig voor het benoemen van bestanden of mappen.</li>
+    <li><a href="/en/countdown.html">Afteltimer</a> – Beheer tijd tijdens grote batchconversies of exports.</li>
+  </ul>
+</section>
+
+<section style="max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;">
+  <h2>Veelgestelde vragen</h2>
+  <h3>Is deze JPG naar PNG converter gratis?</h3>
+  <p>Ja. Deze tool is volledig gratis te gebruiken, zonder registratie of limieten.</p>
+
+  <h3>Worden mijn afbeeldingen naar jullie server geüpload?</h3>
+  <p>Nee. Je afbeelding blijft in je browser. Alles gebeurt lokaal op je apparaat.</p>
+
+  <h3>Kan ik ook PNG naar JPG converteren?</h3>
+  <p>Deze tool ondersteunt alleen JPG naar PNG. Meer formaten volgen binnenkort!</p>
+
+  <h3>Verlies ik kwaliteit bij conversie?</h3>
+  <p>Nee. Het PNG-resultaat behoudt de volledige resolutie. PNG is verliesloos, in tegenstelling tot JPG.</p>
+
+  <h3>Werkt dit op mobiel?</h3>
+  <p>Ja. Je kunt afbeeldingen vanaf je telefoon uploaden en direct converteren.</p>
+</section>
+
+<footer>&copy; 2025 MathijssenFit – Gemaakt met eenvoud en privacy</footer>
+<script>
+document.getElementById('imginp').onchange=e=>{
+ const file=e.target.files[0];
+ if(!file)return;
+ const img=new Image();
+ img.onload=()=>{const c=document.getElementById('cnv');c.width=img.width;c.height=img.height;const ctx=c.getContext('2d');ctx.drawImage(img,0,0);c.toBlob(b=>{const url=URL.createObjectURL(b);const a=document.getElementById('download');a.href=url;a.download='image.png';a.style.display='inline-block';a.textContent='Download PNG';},'image/png');};
+ img.src=URL.createObjectURL(file);
+};
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is deze JPG naar PNG converter gratis?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, deze tool is volledig gratis en vereist geen registratie."}}, {"@type": "Question", "name": "Worden afbeeldingen naar de cloud geüpload?", "acceptedAnswer": {"@type": "Answer", "text": "Nee, alle conversies gebeuren lokaal in je browser."}}, {"@type": "Question", "name": "Kan ik het op mobiel gebruiken?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, het is mobielvriendelijk en werkt in moderne browsers."}}, {"@type": "Question", "name": "Blijft de beeldkwaliteit behouden?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, PNG is verliesloos en behoudt de volledige resolutie."}}, {"@type": "Question", "name": "Kan ik meerdere afbeeldingen tegelijk converteren?", "acceptedAnswer": {"@type": "Answer", "text": "Je kunt één afbeelding per keer converteren. Batchfuncties komen mogelijk later."}}]}
+</script>
+</body>
+</html>

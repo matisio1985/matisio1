@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q5S20EKJG9');</script>
+<!-- Monetag -->
+<script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
+<script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9289950,document.createElement('script'))</script>
+<script src="https://vaugroar.com/act/files/tag.min.js?z=9289953" data-cfasync="false" async></script>
+
+
+<title>Dagelijkse Waterinname Calculator | MathijssenFit</title>
+<meta name="description" content="Schat je ideale dagelijkse waterinname op basis van je lichaamsgewicht. Blijf gehydrateerd en ondersteun je gezondheid met deze eenvoudige online calculator.">
+<meta name="keywords" content="waterinname calculator, hydratatie calculator, water drinken, dagelijkse waterbehoefte, hoeveel water, gezondheid tools">
+<meta property="og:title" content="Dagelijkse Waterinname Calculator | MathijssenFit">
+<meta property="og:description" content="Gebruik deze gratis calculator om te weten hoeveel water je per dag nodig hebt. Gebaseerd op je gewicht.">
+<meta property="og:url" content="https://matisio.nl/nl/water-intake.html">
+<meta name="twitter:card" content="summary">
+
+<meta name="description" content="Estimate how much water you should drink per day.">
+
+<style>
+:root{--bg:#f9f9f9;--card:#fff;--text:#222;--accent:#007acc;}
+[data-theme="dark"]{--bg:#121212;--card:#1e1e1e;--text:#e0e0e0;--accent:#4ea8de;}
+body{margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);}
+header{background:linear-gradient(150deg,var(--accent),#34c759);color:#fff;text-align:center;padding:5rem 1rem 3rem;position:relative;}
+header::after{content:'';position:absolute;bottom:-40px;left:0;width:100%;height:80px;background:var(--bg);clip-path:polygon(0 0,100% 100%,0 100%);}
+.menu-btn{position:fixed;top:1rem;left:1rem;z-index:100;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:1.5rem;padding:.3rem .7rem;cursor:pointer;}
+.drawer{position:fixed;top:0;left:0;height:100vh;width:240px;background:var(--card);box-shadow:2px 0 8px rgba(0,0,0,.15);padding:4rem 1rem 1rem;display:flex;flex-direction:column;gap:1rem;transform:translateX(-100%);transition:transform .3s;z-index:90;}
+.drawer.open{transform:translateX(0);}
+.drawer a{color:var(--text);text-decoration:none;font-weight:bold;padding:.6rem .8rem;border-radius:6px;}
+.drawer a:hover{background:var(--bg);}
+@media(min-width:800px){.menu-btn{display:none;}.drawer{transform:translateX(0);position:static;height:auto;width:auto;flex-direction:row;background:none;box-shadow:none;padding:0;gap:1rem;align-items:center;}.drawer a{color:#fff;background:var(--accent);} .drawer a:hover{background:#005c99;color:#fff;} header{padding-top:7rem;}}
+main{max-width:600px;margin:3rem auto;padding:2rem;background:var(--card);border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.05);text-align:center;}
+footer{text-align:center;font-size:.9rem;color:#555;padding:2rem 1rem;}
+input,select{width:100%;padding:.8rem;margin-top:.5rem;border:1px solid #ccc;border-radius:8px;}
+button{padding:.8rem 1.2rem;border:none;border-radius:8px;background:var(--accent);color:#fff;margin:.5rem 0;cursor:pointer;}
+button:hover{background:#005c99;}
+</style>
+
+</head>
+<body data-theme="light">
+
+<button class="menu-btn" id="toggle">☰</button>
+<nav class="drawer" id="drawer">
+  <a href="/en/">🏠 Home</a>
+  <a href="/en/#health">💪 Health</a>
+  <a href="/en/#productivity">⏱️ Productivity</a>
+  <a href="/en/#utilities">🔧 Utilities</a>
+</nav>
+<script>
+const drawer=document.getElementById('drawer');
+document.getElementById('toggle').onclick=()=>drawer.classList.toggle('open');
+</script>
+
+<header>
+  <h1>💧 Dagelijkse Waterinname</h1>
+  <p>Schat hoeveel water je per dag zou moeten drinken.</p>
+</header>
+<main>
+  
+    <label>Gewicht (kg)
+      <input type="number" id="wt">
+    </label>
+    <div id="wout">–</div>
+    <button onclick="water()">Bereken</button>
+    
+</main>
+<section style="max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;">
+  <h2>Waarom is hydratatie belangrijk?</h2>
+  <p>Water is essentieel voor je gezondheid. Het helpt de lichaamstemperatuur reguleren, transporteert voedingsstoffen, ondersteunt de spijsvertering en beschermt je gewrichten. Bij onvoldoende waterinname dalen fysieke en mentale prestaties — zelfs milde uitdroging kan je energie en concentratie beïnvloeden.</p>
+
+  <h2>Hoe werkt deze calculator</h2>
+  <p>Deze tool schat je dagelijkse waterbehoefte met de formule: 35 ml per kg lichaamsgewicht. Dit biedt een goede richtlijn die je kunt aanpassen op basis van klimaat, activiteitsniveau, leeftijd en dieet.</p>
+
+  <h2>Tips om meer water te drinken</h2>
+  <ul>
+    <li>Houd een fles bij je op je bureau of in je tas</li>
+    <li>Drink een glas water voor elke maaltijd</li>
+    <li>Geef smaak aan je water met citroen of komkommer</li>
+    <li>Eet voedsel met veel water zoals fruit en groenten</li>
+  </ul>
+
+  <h2>Handige gerelateerde tools</h2>
+  <ul>
+    <li><a href="/en/calorie-calculator.html">Calorie Calculator</a> – Ondersteunt je algemene voedingsplan</li>
+    <li><a href="/en/bmi.html">BMI Calculator</a> – Balans tussen hydratatie en gezond lichaamsgewicht</li>
+    <li><a href="/en/stopwatch.html">Stopwatch</a> – Gebruik voor het timen van trainingen en drinkpauzes</li>
+  </ul>
+</section>
+
+<section style="max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;">
+  <h2>Veelgestelde vragen</h2>
+  <h3>Is de berekening exact?</h3>
+  <p>Het is een handige schatting. Je exacte behoefte hangt af van gezondheid, activiteitsniveau en omgeving.</p>
+
+  <h3>Bevat het ook water uit voeding?</h3>
+  <p>Ja. Het houdt rekening met je totale dagelijkse inname, inclusief fruit, groenten en soep.</p>
+
+  <h3>Moet ik meer drinken als ik sport?</h3>
+  <p>Ja. Je kunt 350–700 ml extra nodig hebben per 30 minuten intensieve activiteit.</p>
+
+  <h3>Is te veel water drinken schadelijk?</h3>
+  <p>Ja. Overhydratatie kan leiden tot een laag natriumgehalte (hyponatriëmie), maar dit komt zelden voor. Balans is belangrijk.</p>
+
+  <h3>Is deze tool gratis?</h3>
+  <p>Ja. Alle tools van MathijssenFit zijn gratis, privé en zonder registratie beschikbaar.</p>
+</section>
+
+<footer>&copy; 2025 MathijssenFit – Gemaakt voor jouw gezondheid</footer>
+<script>
+function water(){const w=parseFloat(document.getElementById('wt').value);document.getElementById('wout').textContent=(w*35/1000).toFixed(2)+' L/day';}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is het resultaat voor waterinname exact?", "acceptedAnswer": {"@type": "Answer", "text": "Het is een algemene richtlijn op basis van je lichaamsgewicht. Je kunt meer of minder nodig hebben afhankelijk van activiteit en omgeving."}}, {"@type": "Question", "name": "Moet ik meer drinken als ik sport?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Drink meer tijdens trainingen, warm weer of ziekte."}}, {"@type": "Question", "name": "Bevat dit ook water uit voeding?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Fruit, groenten en maaltijden tellen mee voor je dagelijkse hydratatie."}}, {"@type": "Question", "name": "Is deze calculator gratis te gebruiken?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. MathijssenFit tools zijn gratis en respecteren je privacy."}}, {"@type": "Question", "name": "Kan ik dit op mobiel gebruiken?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Het werkt op alle moderne telefoons en tablets."}}]}
+</script>
+</body>
+</html>

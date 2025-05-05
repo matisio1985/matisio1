@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚖️ Gratis BMI Rekenmachine | MathijssenFit</title>
+  <meta name="description" content="Instantly calculate your Body Mass Index for adults & children, with metric and imperial units.">
+  <link rel="alternate" hreflang="nl" href="https://matisio.nl/nl/bmi.html">
+  <link rel="alternate" hreflang="nl" href="https://matisio.nl/nl/bmi.html">
+  <link rel="alternate" hreflang="x-default" href="https://matisio.nl/nl/bmi.html">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q5S20EKJG9');
+  </script>
+
+  <!-- Monetag Ads -->
+  <script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
+  <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9289950,document.createElement('script'))</script>
+  <script src="https://vaugroar.com/act/files/tag.min.js?z=9289953" data-cfasync="false" async></script>
+
+  <style>
+    :root {--bg:#f9f9f9;--text:#222;--card:#fff;--accent:#007acc;}
+    [data-theme="dark"]{--bg:#121212;--text:#e0e0e0;--card:#1e1e1e;--accent:#4ea8de;}
+    body{font-family:'Segoe UI',sans-serif;margin:0;background:var(--bg);color:var(--text);}
+    header{background:linear-gradient(160deg,var(--accent) 0%,#34c759 100%);color:#fff;text-align:center;padding:5rem 1rem 3rem;position:relative;overflow:hidden;}
+    header::after{content:'';position:absolute;bottom:-40px;left:0;width:100%;height:80px;background:var(--bg);clip-path:polygon(0 0,100% 100%,0 100%);}
+    .menu-toggle{position:fixed;top:1rem;left:1rem;z-index:100;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:1.5rem;padding:.4rem .6rem;cursor:pointer;}
+    .nav-drawer{position:fixed;top:0;left:0;height:100vh;width:240px;background:var(--card);box-shadow:2px 0 8px rgba(0,0,0,.15);padding:4rem 1rem 1rem;display:flex;flex-direction:column;gap:1rem;transform:translateX(-100%);transition:transform .3s;z-index:90;}
+    .nav-drawer.open{transform:translateX(0);}
+    .nav-drawer a{background:none;color:var(--text);font-weight:bold;text-decoration:none;padding:.7rem 1rem;border-radius:6px;}
+    .nav-drawer a:hover{background:var(--bg);}
+    @media(min-width:800px){.menu-toggle{display:none;}.nav-drawer{transform:translateX(0);position:static;height:auto;width:auto;flex-direction:row;background:none;box-shadow:none;padding:0;gap:1rem;align-items:center;}
+      .nav-drawer a{color:#fff;background:var(--accent);} .nav-drawer a:hover{background:#005fa8;color:#fff;} header{padding-top:7rem;}}
+    main{max-width:600px;margin:3rem auto;padding:2rem;background:var(--card);border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.05);}
+    label{display:block;margin-top:1rem;}
+    input,select{width:100%;padding:.8rem;margin-top:.5rem;border:1px solid #ccc;border-radius:8px;}
+    button[type=submit]{margin-top:1.5rem;width:100%;padding:1rem;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer;}
+    button[type=submit]:hover{background:#005fa8;}
+    .result{margin-top:2rem;padding:1.2rem;background:#e6f7ff;border-left:5px solid var(--accent);border-radius:6px;}
+    section{max-width:600px;margin:2rem auto;padding:1rem;}
+  </style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What are the BMI cut-offs for children?", "acceptedAnswer": {"@type": "Answer", "text": "Below 14 is underweight, 14–18 healthy weight, above 18 overweight/obese (ages 2–17)."}}, {"@type": "Question", "name": "Is BMI accurate for muscular people?", "acceptedAnswer": {"@type": "Answer", "text": "No, BMI cannot differentiate muscle from fat. Athletes may show high BMI but low body fat."}}, {"@type": "Question", "name": "How do I lower my BMI safely?", "acceptedAnswer": {"@type": "Answer", "text": "Create a small calorie deficit, eat nutrient‑dense foods and combine strength plus cardio training."}}]}
+</script>
+</head>
+<body data-theme="light">
+
+<button id="menuBtn" class="menu-toggle">☰</button>
+<nav id="mainNav" class="nav-drawer">
+  <a href="/">🏠 Home</a>
+  <a href="/nl/">🌐 English</a>
+  <a href="https://instagram.com/mathijssenfit" target="_blank">📸 Instagram</a>
+  <a href="https://blog.matisio.nl" target="_blank">📝 Blog</a>
+  <a id="langSwitch" href="#" style="background:#34c759;margin-top:1rem;">Nederlands</a>
+</nav>
+
+<header>
+  <h1>⚖️ Gratis BMI Rekenmachine</h1>
+  <p>Bereken direct je Body Mass Index en bijbehorende gezondheidsclassificatie.</p>
+</header>
+
+<main>
+  <div style="text-align:center;margin-bottom:1rem;">
+    <label><strong>Eenheidssysteem:</strong></label>
+    <select id="unitToggle">
+      <option value="metric" selected>Metrisch (kg, cm)</option>
+      <option value="imperial">Imperiaal (lbs, inches)</option>
+    </select>
+  </div>
+
+  <form id="bmiForm">
+    <label>Gewicht (<span id="weightUnit">kg</span>)
+      <input type="number" id="gewicht" step="any" required>
+    </label>
+
+    <label>Lengte (<span id="heightUnit">cm</span>)
+      <input type="number" id="lengte" step="any" required>
+    </label>
+
+    <label>Leeftijd (jaren)
+      <input type="number" id="leeftijd" min="0" max="120" required>
+    </label>
+
+    <label>Geslacht
+      <select id="geslacht">
+        <option value="male">Man</option>
+        <option value="female">Vrouw</option>
+      </select>
+    </label>
+
+    <button type="submit">Bereken BMI</button>
+  </form>
+
+  <div id="resultaat" class="result" style="display:none;"></div>
+
+  <div class="ads" style="text-align:center;margin-top:2rem;">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3167065596755326" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+</main>
+
+<section>
+  
+  
+
+
+  <h2>Wat is BMI?</h2>
+  <p>BMI (Body Mass Index) wordt berekend op basis van je gewicht en lengte. Het is een snelle indicatie van lichaamsvet.</p>
+  <h2>BMI Bereik (Volwassenen)</h2>
+  <ul>
+    <li><strong>&lt; 18.5:</strong> Ondergewicht</li>
+    <li><strong>18.5 – 24.9:</strong> Gezond gewicht</li>
+    <li><strong>25 – 29.9:</strong> Overgewicht</li>
+    <li><strong>&ge; 30:</strong> Obesitas</li>
+  </ul>
+<h2>BMI Bereik (Kinderen & Tieners)</h2>
+  <ul>
+    <li><strong>&lt; 14:</strong> Ondergewicht (child)</li>
+    <li><strong>14 – 18:</strong> Gezond gewicht (kind)</li>
+    <li><strong>&gt; 18:</strong> Overgewicht / Obesitas (child)</li>
+  </ul>
+<p>Meer weten: <a href="https://blogs.matisio.nl/2025/05/understanding-bmi-what-it-means-for.html" target="_blank" rel="noopener">Inzicht in BMI: Wat het betekent voor je gezondheid</a></p>
+<p>Dagelijkse caloriebehoefte weten? Gebruik onze <a href="/nl/calorie-calculator.html">Caloriebehoefte Calculator</a>.</p>
+</section>
+<section>
+  <h2>Inzicht in je BMI-resultaat</h2>
+  <p>Je Body Mass Index is een snelle screeningsmethode, geen diagnostische test. Het schat het lichaamsvet op basis van je lengte en gewicht. Een hoge BMI kan wijzen op een verhoogd risico op aandoeningen zoals type 2 diabetes, hartziekten en slaapapneu. Een zeer lage BMI kan duiden op voedingstekorten of andere gezondheidsproblemen.</p>
+
+  <h3>Beperkingen van BMI</h3>
+  <p>Omdat BMI geen onderscheid maakt tussen spiermassa en vet, kunnen sporters en gespierde mensen in de categorie 'overgewicht' vallen terwijl ze weinig lichaamsvet hebben. Oudere volwassenen hebben vaak meer lichaamsvet dan jongeren bij dezelfde BMI. Voor kinderen beïnvloeden groei, puberteit en genetica de interpretatie — daarom worden percentielgrafieken gebruikt.</p>
+
+  <h3>Hoe je jouw BMI kunt verbeteren</h3>
+  <ul>
+    <li>Combineer krachttraining met cardiotraining 3–5 keer per week.</li>
+    <li>Gebruik onze <a href="/nl/calorie-calculator.html">Caloriebehoefte Calculator</a> om een realistisch dagelijks calorie-doel te stellen.</li>
+    <li>Eet vooral onbewerkte voeding: groenten, mager eiwit, gezonde vetten en complexe koolhydraten.</li>
+    <li>Zorg voor voldoende slaap (7–9 uur) en een goede omgang met stress.</li>
+  </ul>
+
+  <h3>Wanneer je een arts moet raadplegen</h3>
+  <p>Als je BMI in de categorie ondergewicht of obesitas valt, of als je snel aankomt of afvalt, raadpleeg dan een arts voor een volledig onderzoek. Die kan bijvoorbeeld je buikomtrek meten, je vetpercentage bepalen of bloedonderzoek aanvragen.</p>
+
+  <h3>Meer Gratis Tools</h3>
+  <ul>
+    <li><a href="/nl/water-intake.html">Calculator voor Dagelijkse Waterinname</a> – blijf gehydrateerd voor een optimale gezondheid.</li>
+    <li><a href="/nl/pomodoro.html">Pomodoro Timer</a> – verhoog je productiviteit met 25 minuten gefocust werken.</li>
+    <li><a href="/nl/mindset_quote_generator.html">Mindset Quote Generator</a> – dagelijkse motivatie voor je gezondheidsdoelen.</li>
+  </ul>
+</section>
+
+
+
+
+
+<script>
+/* drawer */
+const btn=document.getElementById('menuBtn'),nav=document.getElementById('mainNav');
+btn.onclick=()=>nav.classList.toggle('open');
+
+/* lang switch */
+(function(){
+  const switcher=document.getElementById('langSwitch');
+  const path=location.pathname;
+  if(path.startsWith('/nl/')){switcher.textContent='English';switcher.href=path.replace('/nl/','/en/');}
+  else{switcher.textContent='English';switcher.href='/nl'+(path.startsWith('/en/')?path.slice(3):path);}
+})();
+
+/* dark-mode preference */
+document.addEventListener('DOMContentLoaded',()=>{
+  document.body.setAttribute('data-theme',localStorage.getItem('theme')||'light');
+});
+
+/* BMI logic */
+document.getElementById('unitToggle').addEventListener('change',function(){
+  const w=document.getElementById('gewicht'),h=document.getElementById('lengte');
+  const wu=document.getElementById('weightUnit'),hu=document.getElementById('heightUnit');
+  if(this.value==='imperial'){w.value=(parseFloat(w.value)*2.20462||'');h.value=(parseFloat(h.value)/2.54||'');wu.textContent='lbs';hu.textContent='inches';}
+  else{w.value=(parseFloat(w.value)/2.20462||'');h.value=(parseFloat(h.value)*2.54||'');wu.textContent='kg';hu.textContent='cm';}
+});
+
+document.getElementById('bmiForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  let w=parseFloat(document.getElementById('gewicht').value);
+  let h=parseFloat(document.getElementById('lengte').value);
+  const age=parseInt(document.getElementById('leeftijd').value);
+  if(document.getElementById('unitToggle').value==='imperial'){w/=2.20462;h*=2.54;}
+  h/=100;
+  const bmi=w/(h*h);
+  let cat='';
+  if(age<18){cat=bmi<14?'Ondergewicht (child)':bmi<18?'Normal (child)':'Overgewicht (child)';}
+  else{cat=bmi<18.5?'Ondergewicht':bmi<25?'Normal':bmi<30?'Overgewicht':'Obesitas';}
+  const res=document.getElementById('resultaat');
+  res.innerHTML=`<strong>BMI: ${bmi.toFixed(1)}</strong><br>${cat}`;
+  res.style.display='block';
+});
+</script>
+<footer style="text-align:center;font-size:.9rem;color:#555;padding:2rem 1rem;">&copy; 2025 MathijssenFit
+</footer>
+</body>
+</html>

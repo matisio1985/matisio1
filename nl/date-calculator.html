@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q5S20EKJG9');</script>
+<!-- Monetag -->
+<script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
+<script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9289950,document.createElement('script'))</script>
+<script src="https://vaugroar.com/act/files/tag.min.js?z=9289953" data-cfasync="false" async></script>
+
+
+<title>Datumcalculator | MathijssenFit</title>
+<meta name="description" content="Use our date calculator to count dagen between two dates. Perfect for planning, scheduling, and tracking events or deadlines.">
+<meta name="keywords" content="date calculator, date difference, dagen between, date range, event planning, time calculator">
+<meta property="og:title" content="Datumcalculator | MathijssenFit">
+<meta property="og:description" content="Easily calculate the dagen between two dates. No signup required.">
+<meta property="og:url" content="https://matisio.nl/en/date-calculator.html">
+<meta name="twitter:card" content="summary">
+
+<meta name="description" content="Bereken het verschil tussen twee datums.">
+
+<style>
+:root{--bg:#f9f9f9;--card:#fff;--text:#222;--accent:#007acc;}
+[data-theme="dark"]{--bg:#121212;--card:#1e1e1e;--text:#e0e0e0;--accent:#4ea8de;}
+body{margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);}
+header{background:linear-gradient(150deg,var(--accent),#34c759);color:#fff;text-align:center;padding:5rem 1rem 3rem;position:relative;}
+header::after{content:'';position:absolute;bottom:-40px;left:0;width:100%;height:80px;background:var(--bg);clip-path:polygon(0 0,100% 100%,0 100%);}
+.menu-btn{position:fixed;top:1rem;left:1rem;z-index:100;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:1.5rem;padding:.3rem .7rem;cursor:pointer;}
+.drawer{position:fixed;top:0;left:0;height:100vh;width:240px;background:var(--card);box-shadow:2px 0 8px rgba(0,0,0,.15);padding:4rem 1rem 1rem;display:flex;flex-direction:column;gap:1rem;transform:translateX(-100%);transition:transform .3s;z-index:90;}
+.drawer.open{transform:translateX(0);}
+.drawer a{color:var(--text);text-decoration:none;font-weight:bold;padding:.6rem .8rem;border-radius:6px;}
+.drawer a:hover{background:var(--bg);}
+@media(min-width:800px){.menu-btn{display:none;}.drawer{transform:translateX(0);position:static;height:auto;width:auto;flex-direction:row;background:none;box-shadow:none;padding:0;gap:1rem;align-items:center;}.drawer a{color:#fff;background:var(--accent);} .drawer a:hover{background:#005c99;color:#fff;} header{padding-top:7rem;}}
+main{max-width:600px;margin:3rem auto;padding:2rem;background:var(--card);border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.05);text-align:center;}
+footer{text-align:center;font-size:.9rem;color:#555;padding:2rem 1rem;}
+input,select{width:100%;padding:.8rem;margin-top:.5rem;border:1px solid #ccc;border-radius:8px;}
+button{padding:.8rem 1.2rem;border:none;border-radius:8px;background:var(--accent);color:#fff;margin:.5rem 0;cursor:pointer;}
+button:hover{background:#005c99;}
+</style>
+
+</head>
+<body data-theme="light">
+
+<button class="menu-btn" id="toggle">☰</button>
+<nav class="drawer" id="drawer">
+  <a href="/en/">🏠 Home</a>
+  <a href="/en/#health">💪 Health</a>
+  <a href="/en/#productivity">⏱️ Productivity</a>
+  <a href="/en/#utilities">🔧 Utilities</a>
+</nav>
+<script>
+const drawer=document.getElementById('drawer');
+document.getElementById('toggle').onclick=()=>drawer.classList.toggle('open');
+</script>
+
+<header>
+  <h1>📅 Datumcalculator</h1>
+  <p>Bereken het verschil tussen twee datums.</p>
+</header>
+<main>
+  
+    <label>Begindatum
+      <input type="date" id="ds">
+    </label>
+    <label>Einddatum
+      <input type="date" id="de">
+    </label>
+    <div id="dout">–</div>
+    <button onclick="datediff()">Bereken</button>
+    
+</main>
+<section style="max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;">
+  <h2>Hoe gebruik je deze datumcalculator</h2>
+  <p>Onze datumcalculator helpt je het aantal dagen tussen twee datums te bepalen. Selecteer eenvoudig de begin- en einddatum via de kalender en klik op "Bereken". Het resultaat toont het totaal aantal dagen tussen de gekozen datums.</p>
+
+  <h2>Wanneer is een datumcalculator handig?</h2>
+  <ul>
+    <li>Plannen van projectdeadlines</li>
+    <li>Leeftijd of diensttijd berekenen</li>
+    <li>Aftellen tot een gebeurtenis (vakanties, bruiloften, lanceringen)</li>
+    <li>Werk- of schoolschema’s</li>
+    <li>Zwangerschap of medische opvolging</li>
+  </ul>
+
+  <h2>Probeer deze gerelateerde tools</h2>
+  <ul>
+    <li><a href="/en/countdown.html">Afteltimer</a> – Tel af naar een specifieke dag of tijdstip.</li>
+    <li><a href="/en/stopwatch.html">Stopwatch</a> – Meet hoe lang een taak in beslag neemt.</li>
+    <li><a href="/en/ovulation.html">Ovulatiecalculator</a> – Gebaseerd op je laatste menstruatiecyclus.</li>
+  </ul>
+
+  <h2>Waarom deze online tool gebruiken?</h2>
+  <p>Onze datumcalculator is snel, gratis en werkt volledig in je browser. Je hoeft je niet te registreren of iets te installeren. Of je nu vooruit plant of terugkijkt, deze tool geeft je snel en betrouwbaar antwoord.</p>
+</section>
+
+<section style="max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;">
+  <h2>Veelgestelde vragen</h2>
+  <h3>Telt het weekenden mee?</h3>
+  <p>Ja. Deze tool telt alle kalenderdagen mee. Een calculator voor werkdagen volgt binnenkort.</p>
+
+  <h3>Kan ik vandaag meenemen in het resultaat?</h3>
+  <p>De huidige versie sluit standaard de begindatum uit. Je kunt dit handmatig aanpassen indien gewenst.</p>
+
+  <h3>Kan ik toekomstige of eerdere datums berekenen?</h3>
+  <p>Ja. Kies twee datums in de toekomst, het verleden of een combinatie. De tool berekent het totale verschil in dagen.</p>
+
+  <h3>Is deze datumcalculator gratis?</h3>
+  <p>Ja. De tools van MathijssenFit zijn volledig gratis en bedoeld om productiviteit en planning te ondersteunen.</p>
+
+  <h3>Werkt het op mobiel?</h3>
+  <p>Absoluut. De tool is responsief en werkt soepel op alle moderne apparaten.</p>
+</section>
+
+<footer>&copy; 2025 MathijssenFit – Gemaakt met zorg</footer>
+<script>
+function datediff(){const s=new Date(document.getElementById('ds').value);const e=new Date(document.getElementById('de').value);const diff=Math.abs(e-s)/(1000*60*60*24);document.getElementById('dout').textContent=diff+' dagen';}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How does this date calculator work?", "acceptedAnswer": {"@type": "Answer", "text": "It calculates the number of dagen between two selected calendar dates."}}, {"@type": "Question", "name": "Can I use it for deadlines?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It\u2019s ideal for planning project schedules, deliveries or events."}}, {"@type": "Question", "name": "Is the tool free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, it is completely free and runs in your browser."}}, {"@type": "Question", "name": "Can I calculate past and future dates?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The tool works with any valid start and end date."}}, {"@type": "Question", "name": "Does it work on phones?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, it's fully mobile-friendly and responsive."}}]}
+</script>
+</body>
+</html>

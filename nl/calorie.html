@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔥 Calorie Calculator | MathijssenFit</title>
+<meta name="description" content="Estimate your daily calorie needs using the Mifflin‑St Jeor equation, adjusted for activity level. Supports metric & imperial units.">
+<meta name="keywords" content="calorie calculator, TDEE, daily calories, basal metabolic rate, energy needs, MathijssenFit">
+<link rel="alternate" hreflang="nl" href="https://matisio.nl/nl/calorie-calculator.html">
+<link rel="alternate" hreflang="nl" href="https://matisio.nl/en/calorie-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://matisio.nl/en/calorie-calculator.html">
+<meta property="og:title" content="Dagelijkse Caloriebehoefte Rekenaar | MathijssenFit">
+<meta property="og:description" content="Quickly calculate how many calories you burn per day to lose, gain or maintain weight.">
+<meta property="og:url" content="https://matisio.nl/en/calorie-calculator.html">
+<meta property="og:image" content="https://matisio.nl/assets/og/calories.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q5S20EKJG9');</script>
+
+<!-- Monetag -->
+<script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
+<script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9289950,document.createElement('script'))</script>
+<script src="https://vaugroar.com/act/files/tag.min.js?z=9289953" data-cfasync="false" async></script>
+
+<style>
+:root{--bg:#f9f9f9;--card:#fff;--text:#222;--accent:#007acc;}
+[data-theme="dark"]{--bg:#121212;--card:#1e1e1e;--text:#e0e0e0;--accent:#4ea8de;}
+body{margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);}
+header{background:linear-gradient(150deg,var(--accent),#34c759);color:#fff;text-align:center;padding:5rem 1rem 3rem;position:relative;}
+header::after{content:'';position:absolute;bottom:-40px;left:0;width:100%;height:80px;background:var(--bg);clip-path:polygon(0 0,100% 100%,0 100%);}
+.menu-btn{position:fixed;top:1rem;left:1rem;z-index:100;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:1.5rem;padding:.3rem .7rem;cursor:pointer;}
+.drawer{position:fixed;top:0;left:0;height:100vh;width:240px;background:var(--card);box-shadow:2px 0 8px rgba(0,0,0,.15);padding:4rem 1rem 1rem;display:flex;flex-direction:column;gap:1rem;transform:translateX(-100%);transition:transform .3s;z-index:90;}
+.drawer.open{transform:translateX(0);}
+.drawer a{color:var(--text);text-decoration:none;font-weight:bold;padding:.6rem .8rem;border-radius:6px;}
+.drawer a:hover{background:var(--bg);}
+@media(min-width:800px){.menu-btn{display:none;}.drawer{transform:translateX(0);position:static;height:auto;width:auto;flex-direction:row;background:none;box-shadow:none;padding:0;gap:1rem;align-items:center;}.drawer a{color:#fff;background:var(--accent);} .drawer a:hover{background:#005c99;color:#fff;} header{padding-top:7rem;}}
+main{max-width:600px;margin:3rem auto;padding:2rem;background:var(--card);border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.05);}
+label{display:block;margin-top:1rem;}
+input,select{width:100%;padding:.8rem;margin-top:.5rem;border:1px solid #ccc;border-radius:8px;}
+#result{margin-top:2rem;padding:1.2rem;background:#e6f7ff;border-left:5px solid var(--accent);border-radius:6px;display:none;}
+button[type=submit]{margin-top:1.5rem;width:100%;padding:1rem;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer;}
+button[type=submit]:hover{background:#005c99;}
+section{max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;}
+footer{text-align:center;font-size:.9rem;color:#555;padding:2rem 1rem;}
+</style>
+</head>
+<body data-theme="light">
+<button class="menu-btn" id="toggle">☰</button>
+<nav class="drawer" id="drawer">
+  <a href="/en/">🏠 Home</a>
+  <a href="/en/#health">💪 Health Tools</a>
+  <a href="/en/#productivity">⏱️ Productivity</a>
+  <a href="/en/bmi.html">⚖️ BMI Calculator</a>
+  <a id="langSwitch" href="#" style="background:#34c759;margin-top:1rem;">Nederlands</a>
+</nav>
+
+<header>
+  <h1>🔥 Dagelijkse Caloriebehoefte Rekenaar</h1>
+  <p>Ontdek hoeveel calorieën je per dag verbrandt.</p>
+</header>
+
+<main>
+  <div style="text-align:center;margin-bottom:1rem;">
+    <label><strong>Eenheidssysteem:</strong></label>
+    <select id="unit">
+      <option value="metric" selected>Metrisch (kg, cm)</option>
+      <option value="imperial">Imperiaal (lbs, inches)</option>
+    </select>
+  </div>
+
+  <form id="calForm">
+    <label>Leeftijd
+      <input type="number" id="age" required>
+    </label>
+
+    <label>Geslacht
+      <select id="sex">
+        <option value="male">Man</option>
+        <option value="female">Vrouw</option>
+      </select>
+    </label>
+
+    <label>Gewicht (<span id="wU">kg</span>)
+      <input type="number" id="weight" required>
+    </label>
+
+    <label>Lengte (<span id="hU">cm</span>)
+      <input type="number" id="height" required>
+    </label>
+
+    <label>Activiteitsniveau
+      <select id="activity">
+        <option value="1.2">Weinig of geen lichaamsbeweging</option>
+        <option value="1.375">Lichte lichaamsbeweging (1–3 dagen/week)</option>
+        <option value="1.55">Gemiddelde lichaamsbeweging (3–5 dagen/week)</option>
+        <option value="1.725">Zware lichaamsbeweging (6–7 dagen/week)</option>
+        <option value="1.9">Zeer zwaar (fysiek werk of 2x per dag trainen)</option>
+      </select>
+    </label>
+
+    <button type="submit">Bereken</button>
+  </form>
+
+  <div id="result"></div>
+</main>
+
+<section>
+  <h2>How We Bereken</h2>
+  <p>Wij gebruiken de <strong>Mifflin‑St Jeor</strong>-formule om je basaal metabolisme (BMR) te berekenen. Deze vermenigvuldigen we met je activiteitsniveau om je totale dagelijkse energieverbruik (TDEE) te bepalen.</p>
+
+  <h2>Doelen Instellen</h2>
+  <ul>
+    <li><strong>Afvallen:</strong> streef naar 10–20% onder je TDEE.</li>
+    <li><strong>Spiermassa opbouwen:</strong> streef naar 10–15% boven je TDEE.</li>
+    <li><strong>Behouden:</strong> blijf binnen ±5% van je TDEE.</li>
+  </ul>
+
+  <h2>Vervolgstappen</h2>
+  <p>Houd je macro's en dagelijkse inname bij met een voedingsapp. Herbereken telkens wanneer je gewicht met 5 kg verandert.</p>
+
+  <h2>Meer Informatie</h2>
+  <p>Lees onze uitgebreide gids over calorieën en energiebalans → <a href="https://blogs.matisio.nl/2025/05/understanding-calories-and-energy-balance.html" target="_blank">Calorieën en Energiebalans</a></p>
+</section>
+<section>
+  <h2>Veelgestelde Vragen</h2>
+  <h3>Is dit caloriegetal 100% nauwkeurig?</h3>
+  <p>Geen enkele calculator is perfect. Je werkelijke behoefte varieert door spiermassa, hormonen en dagelijkse stress.</p>
+
+  <h3>Hoe pas ik calorieën aan om vet te verliezen?</h3>
+  <p>Creëer een calorietekort van 10–20% (eet minder calorieën dan je TDEE) en streef naar 0,5–1% gewichtsverlies per week.</p>
+
+  <h3>Wat als ik spiermassa wil opbouwen?</h3>
+  <p>Eet 10–15% boven je TDEE, doe 3–5 keer per week aan krachttraining en neem 1,6–2,2 g eiwit per kg lichaamsgewicht.</p>
+
+  <h3>Moet ik opnieuw berekenen als mijn gewicht verandert?</h3>
+  <p>Ja. Elke verandering van 5 kg verandert je BMR. Herbereken om je plan actueel te houden.</p>
+
+  <h3>Zijn macro's belangrijk?</h3>
+  <p>Calorieën bepalen je gewicht; macro's beïnvloeden je lichaamssamenstelling en energie. Geef prioriteit aan eiwitten voor spieropbouw.</p>
+</section>
+
+<footer&copy; 2025 MathijssenFit</footer>
+
+<script>
+const d=document,drawer=d.getElementById('drawer');d.getElementById('toggle').onclick=()=>drawer.classList.toggle('open');
+(function(){const l=document.getElementById('langSwitch');const p=location.pathname;if(p.startsWith('/nl/')){l.textContent='English';l.href=p.replace('/nl/','/en/');}else{l.textContent='Nederlands';l.href='/nl'+(p.startsWith('/en/')?p.slice(3):p);}})();
+
+const unitSel=d.getElementById('unit'), wU=d.getElementById('wU'),hU=d.getElementById('hU');
+unitSel.onchange=()=>{
+ const metr=unitSel.value==='metric';
+ wU.textContent=metr?'kg':'lbs';
+ hU.textContent=metr?'cm':'inches';
+ const w=d.getElementById('weight'),h=d.getElementById('height');
+ if(metr){w.value=(parseFloat(w.value)/2.20462||'').toFixed(2);h.value=(parseFloat(h.value)*2.54||'').toFixed(1);}
+ else{w.value=(parseFloat(w.value)*2.20462||'').toFixed(2);h.value=(parseFloat(h.value)/2.54||'').toFixed(1);}
+};
+
+d.getElementById('calForm').onsubmit=e=>{
+ e.preventDefault();
+ let age=parseFloat(d.getElementById('age').value);
+ let sex=d.getElementById('sex').value;
+ let w=parseFloat(d.getElementById('weight').value);
+ let h=parseFloat(d.getElementById('height').value);
+ const act=parseFloat(d.getElementById('activity').value);
+ if(unitSel.value==='imperial'){w/=2.20462;h*=2.54;}
+ const bmr=sex==='male'?10*w+6.25*h-5*age+5:10*w+6.25*h-5*age-161;
+ const tdee=Math.round(bmr*act);
+ d.getElementById('result').style.display='block';
+ d.getElementById('result').innerHTML=`<strong>${tdee}</strong> kcal/day.`;
+};
+</script>
+
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What formula do you use?", "acceptedAnswer": {"@type": "Answer", "text": "We use the Mifflin\u2011St Jeor equation to calculate BMR."}}, {"@type": "Question", "name": "Is the calorie estimate 100% accurate?", "acceptedAnswer": {"@type": "Answer", "text": "It's an estimate; individual metabolism varies with muscle mass, hormones and lifestyle."}}, {"@type": "Question", "name": "How do I lose weight with my TDEE?", "acceptedAnswer": {"@type": "Answer", "text": "Create a 10\u201120\u00a0% calorie deficit and combine with exercise."}}, {"@type": "Question", "name": "How can I gain muscle?", "acceptedAnswer": {"@type": "Answer", "text": "Eat 10\u201115\u00a0% above TDEE and follow a resistance\u2011training programme."}}, {"@type": "Question", "name": "When should I recalculate my calories?", "acceptedAnswer": {"@type": "Answer", "text": "Every time your body weight changes by ~5\u202fkg or your activity level shifts."}}, {"@type": "Question", "name": "Zijn macro's belangrijk?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Adequate protein (1.6\u20132.2\u202fg/kg) supports muscle and satiety while calories control weight."}}]}
+</script>
+</body>
+</html>

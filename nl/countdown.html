@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q5S20EKJG9');</script>
+<!-- Monetag -->
+<script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
+<script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9289950,document.createElement('script'))</script>
+<script src="https://vaugroar.com/act/files/tag.min.js?z=9289953" data-cfasync="false" async></script>
+
+
+<title>Afteltimer | MathijssenFit</title>
+<meta name="description" content="Use our free countdown timer to set a custom countdown and get alerted when time is up. Perfect for workouts, focus sessions, cooking, or study blocks.">
+<meta name="keywords" content="countdown timer, online timer, timer app, productivity, time tracker, focus timer">
+<meta property="og:title" content="Afteltimer | MathijssenFit">
+<meta property="og:description" content="Custom countdown timer to help you stay focused and on track.">
+<meta property="og:url" content="https://matisio.nl/en/countdown.html">
+<meta name="twitter:card" content="summary">
+
+<meta name="description" content="Stel een aangepaste aftelling in en ontvang een melding wanneer de tijd om is.">
+
+<style>
+:root{--bg:#f9f9f9;--card:#fff;--text:#222;--accent:#007acc;}
+[data-theme="dark"]{--bg:#121212;--card:#1e1e1e;--text:#e0e0e0;--accent:#4ea8de;}
+body{margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);}
+header{background:linear-gradient(150deg,var(--accent),#34c759);color:#fff;text-align:center;padding:5rem 1rem 3rem;position:relative;}
+header::after{content:'';position:absolute;bottom:-40px;left:0;width:100%;height:80px;background:var(--bg);clip-path:polygon(0 0,100% 100%,0 100%);}
+.menu-btn{position:fixed;top:1rem;left:1rem;z-index:100;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:1.5rem;padding:.3rem .7rem;cursor:pointer;}
+.drawer{position:fixed;top:0;left:0;height:100vh;width:240px;background:var(--card);box-shadow:2px 0 8px rgba(0,0,0,.15);padding:4rem 1rem 1rem;display:flex;flex-direction:column;gap:1rem;transform:translateX(-100%);transition:transform .3s;z-index:90;}
+.drawer.open{transform:translateX(0);}
+.drawer a{color:var(--text);text-decoration:none;font-weight:bold;padding:.6rem .8rem;border-radius:6px;}
+.drawer a:hover{background:var(--bg);}
+@media(min-width:800px){.menu-btn{display:none;}.drawer{transform:translateX(0);position:static;height:auto;width:auto;flex-direction:row;background:none;box-shadow:none;padding:0;gap:1rem;align-items:center;}.drawer a{color:#fff;background:var(--accent);} .drawer a:hover{background:#005c99;color:#fff;} header{padding-top:7rem;}}
+main{max-width:600px;margin:3rem auto;padding:2rem;background:var(--card);border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.05);text-align:center;}
+footer{text-align:center;font-size:.9rem;color:#555;padding:2rem 1rem;}
+input,select{width:100%;padding:.8rem;margin-top:.5rem;border:1px solid #ccc;border-radius:8px;}
+button{padding:.8rem 1.2rem;border:none;border-radius:8px;background:var(--accent);color:#fff;margin:.5rem 0;cursor:pointer;}
+button:hover{background:#005c99;}
+</style>
+
+</head>
+<body data-theme="light">
+
+<button class="menu-btn" id="toggle">☰</button>
+<nav class="drawer" id="drawer">
+  <a href="/en/">🏠 Home</a>
+  <a href="/en/#health">💪 Health</a>
+  <a href="/en/#productivity">⏱️ Productivity</a>
+  <a href="/en/#utilities">🔧 Utilities</a>
+</nav>
+<script>
+const drawer=document.getElementById('drawer');
+document.getElementById('toggle').onclick=()=>drawer.classList.toggle('open');
+</script>
+
+<header>
+  <h1>⏳ Afteltimer</h1>
+  <p>Stel een aangepaste aftelling in en ontvang een melding wanneer de tijd om is.</p>
+</header>
+<main>
+  
+    <label>Minuten
+      <input type="number" id="min" value="1" min="0">
+    </label>
+    <label>Seconden
+      <input type="number" id="sec" value="0" min="0" max="59">
+    </label>
+    <div id="disp">00:00</div>
+    <button onclick="start()">Start</button>
+    <button onclick="reset()">Reset</button>
+    
+</main>
+<section style="max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;">
+  <h2>Waarom een afteltimer gebruiken?</h2>
+  <p>Een afteltimer is een praktisch hulpmiddel om korte taken te beheren, tijd te structureren of situaties waarin een tijdslimiet nodig is. Het is vooral handig bij timemanagementmethodes zoals de <a href="/en/pomodoro.html">Pomodoro-techniek</a>, waarbij je 25 minuten gefocust werkt en daarna 5 minuten pauze neemt. Onze online timer is eenvoudig, betrouwbaar en werkt direct in je browser — geen download of registratie vereist.</p>
+
+  <h2>Hoe gebruik je deze tool</h2>
+  <p>Voer eenvoudig het aantal minuten en seconden in dat je wilt instellen. Klik op "Start" om de aftelling te starten. Wanneer de timer op nul komt, ontvang je een melding in je browser om je sessie te beëindigen.</p>
+
+  <h2>Beste toepassingsscenario's</h2>
+  <ul>
+    <li>Focus-sessies met behulp van een <a href="/en/pomodoro.html">Pomodoro timer</a></li>
+    <li>Getimede trainingen of intervaltraining met hoge intensiteit</li>
+    <li>Timers voor koken of bakken</li>
+    <li>Pauzes met tijdslimiet tussen studiesessies</li>
+    <li>Snelle mentale resetroutines met behulp van een <a href="/en/stopwatch.html">stopwatch</a></li>
+  </ul>
+
+  <h2>Probeer deze gerelateerde tools</h2>
+  <ul>
+    <li><a href="/en/stopwatch.html">Stopwatch</a> – Meet tijd nauwkeurig met een eenvoudige start/stop-knop.</li>
+    <li><a href="/en/random-number.html">Willekeurige Getallengenerator</a> – Genereer onmiddellijk willekeurige getallen voor spellen of testen.</li>
+    <li><a href="/en/pomodoro.html">Pomodoro Timer</a> – Optimaliseer je focus in blokken van 25 minuten.</li>
+  </ul>
+</section>
+
+<section style="max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;">
+  <h2>Veelgestelde Vragen</h2>
+  <h3>Kan ik deze timer offline gebruiken?</h3>
+  <p>Nee. Deze afteltimer werkt in je webbrowser en vereist een internetverbinding om correct te functioneren.</p>
+
+  <h3>Klinkt er een alarm als de tijd om is?</h3>
+  <p>Er verschijnt een melding in je browser. Voor geluidssignalen moet het tabblad actief zijn en meldingen ingeschakeld zijn.</p>
+
+  <h3>Is deze timer geschikt voor mobiel gebruik?</h3>
+  <p>Ja, hij is volledig responsief en geoptimaliseerd voor gebruik op telefoons, tablets en desktops.</p>
+
+  <h3>Kan ik hem meerdere keren achter elkaar gebruiken?</h3>
+  <p>Absoluut. Klik gewoon op reset en begin opnieuw. Ideaal voor werkpauzes en focusblokken.</p>
+
+  <h3>Is deze timer gratis?</h3>
+  <p>Ja. Alle tools op MathijssenFit zijn volledig gratis te gebruiken en bevatten geen advertenties die je sessie onderbreken.</p>
+</section>
+
+
+
+<footer>&copy; 2025 MathijssenFit – Gemaakt met zorg en eenvoud</footer>
+<script>
+let total=0,timer;
+function update(){const m=String(Math.floor(total/60)).padStart(2,'0');const s=String(total%60).padStart(2,'0');document.getElementById('disp').textContent=`${m}:${s}`;}
+function tick(){if(total>0){total--;update();}else{clearInterval(timer);alert("Time's up!");}}
+function start(){const m=parseInt(document.getElementById('min').value)||0;const s=parseInt(document.getElementById('sec').value)||0;total=m*60+s;update();clearInterval(timer);timer=setInterval(tick,1000);}
+function reset(){clearInterval(timer);total=0;update();}
+document.addEventListener('DOMContentLoaded',update);
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wat is een afteltimer?", "acceptedAnswer": {"@type": "Answer", "text": "Een afteltimer stelt je in staat om een tijdslimiet in te stellen die aftelt naar nul met een waarschuwing aan het einde."}}, {"@type": "Question", "name": "Kan ik deze timer gebruiken voor studeren of workouts?", "acceptedAnswer": {"@type": "Answer", "text": "Yes! It\u2019s ideal for productivity sessions, breaks, workouts, cooking, or reminders."}}, {"@type": "Question", "name": "Is de afteltimer gratis te gebruiken?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Deze tool is 100% gratis en werkt in je browser zonder registratie."}}]}
+</script>
+</body>
+</html>

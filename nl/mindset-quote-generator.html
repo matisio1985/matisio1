@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="nl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>🧠 Mindset Quote Generator | Dagelijkse Inspiratie | MathijssenFit</title>
+<meta content="Ontvang elke dag een inspirerende mindset-quote met een praktische uitdaging om je focus en discipline te versterken." name="description"/>
+<link href="https://matisio.nl/nl/bmi.html" hreflang="nl" rel="alternate"/>
+<link href="https://matisio.nl/en/bmi.html" hreflang="en" rel="alternate"/>
+<link href="https://matisio.nl/en/bmi.html" hreflang="x-default" rel="alternate"/>
+<!-- Google Analytics -->
+<!-- Monetag Ads -->
+</head><style>
+    :root {--bg:#f9f9f9;--text:#222;--card:#fff;--accent:#007acc;}
+    [data-theme="dark"]{--bg:#121212;--text:#e0e0e0;--card:#1e1e1e;--accent:#4ea8de;}
+    body{font-family:'Segoe UI',sans-serif;margin:0;background:var(--bg);color:var(--text);}
+    header{background:linear-gradient(160deg,var(--accent) 0%,#34c759 100%);color:#fff;text-align:center;padding:5rem 1rem 3rem;position:relative;overflow:hidden;}
+    header::after{content:'';position:absolute;bottom:-40px;left:0;width:100%;height:80px;background:var(--bg);clip-path:polygon(0 0,100% 100%,0 100%);}
+    .menu-toggle{position:fixed;top:1rem;left:1rem;z-index:100;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:1.5rem;padding:.4rem .6rem;cursor:pointer;}
+    .nav-drawer{position:fixed;top:0;left:0;height:100vh;width:240px;background:var(--card);box-shadow:2px 0 8px rgba(0,0,0,.15);padding:4rem 1rem 1rem;display:flex;flex-direction:column;gap:1rem;transform:translateX(-100%);transition:transform .3s;z-index:90;}
+    .nav-drawer.open{transform:translateX(0);}
+    .nav-drawer a{background:none;color:var(--text);font-weight:bold;text-decoration:none;padding:.7rem 1rem;border-radius:6px;}
+    .nav-drawer a:hover{background:var(--bg);}
+    @media(min-width:800px){.menu-toggle{display:none;}.nav-drawer{transform:translateX(0);position:static;height:auto;width:auto;flex-direction:row;background:none;box-shadow:none;padding:0;gap:1rem;align-items:center;}
+      .nav-drawer a{color:#fff;background:var(--accent);} .nav-drawer a:hover{background:#005fa8;color:#fff;} header{padding-top:7rem;}}
+    main{max-width:600px;margin:3rem auto;padding:2rem;background:var(--card);border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.05);}
+    label{display:block;margin-top:1rem;}
+    input,select{width:100%;padding:.8rem;margin-top:.5rem;border:1px solid #ccc;border-radius:8px;}
+    button[type=submit]{margin-top:1.5rem;width:100%;padding:1rem;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer;}
+    button[type=submit]:hover{background:#005fa8;}
+    .result{margin-top:2rem;padding:1.2rem;background:#e6f7ff;border-left:5px solid var(--accent);border-radius:6px;}
+    section{max-width:600px;margin:2rem auto;padding:1rem;}
+  </style><body data-theme="light"><button class="menu-toggle" id="menuBtn">☰</button><nav class="nav-drawer" id="mainNav">
+<a href="/">🏠 Home</a>
+<a href="/en/">🌐 English</a>
+<a href="https://instagram.com/mathijssenfit" target="_blank">📸 Instagram</a>
+<a href="https://blog.matisio.nl" target="_blank">📝 Blog</a>
+<a href="#" id="langSwitch" style="background:#34c759;margin-top:1rem;">Nederlands</a>
+</nav><header>
+<h1>🧠 Mindset Quote Generator</h1>
+<p>Dagelijkse quotes voor helderheid, consistentie en focus.</p>
+</header><main>
+<h1>Mindset Quote Generator</h1>
+<p>Klik op de knop om een willekeurige quote en dagelijkse uitdaging te tonen.</p>
+<h2>Begin je dag met een positieve mindset</h2>
+<p>This tool offers motivational quotes and simple mindset challenges designed to sharpen your focus and build better habits — one day at a time.</p>
+<textarea id="quoteBox" readonly="">Click the button to reveal your quote.</textarea>
+<br/>
+<button class="btn generate" onclick="generateQuote()">Toon een Quote</button>
+<button class="btn copy" onclick="copyQuote()">Kopieer Quote</button>
+<button class="btn share" onclick="shareQuote()">Deel Quote</button>
+</main><section style="max-width: 700px; margin: 2rem auto; padding: 1rem;">
+<h2>Waarom een Mindset Quote Generator gebruiken?</h2>
+<p>Soms is een simpele quote genoeg om je denken te resetten, actie te stimuleren of helderheid te brengen. Deze tool biedt snel toepasbare wijsheid die je doelen, productiviteit en mentale welzijn ondersteunt.</p>
+<h2>Hoe gebruik je deze tool</h2>
+<ul>
+<li>Click the <strong>"Toon een Quote"</strong> button to get a randomly selected motivational quote.</li>
+<li>Elke quote bevat een kleine uitdaging waar je vandaag nog mee aan de slag kunt.</li>
+<li>Gebruik deze tool dagelijks voor reflectie, journaling of als onderdeel van je ochtendroutine.</li>
+</ul>
+<h2>Meer tools om je focus te verbeteren</h2>
+<p>Probeer onze <a href="https://matisio.nl/tools/pomodoro-timer" rel="noopener" target="_blank">Pomodoro Timer</a> om gefocust te blijven en je tijd in korte effectieve blokken te beheren.</p>
+</section><footer style="text-align:center;font-size:.9rem;color:#555;padding:2rem 1rem;">© 2025 MathijssenFit – Gemaakt met eenvoud en aandacht
+</footer></body><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script><script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q5S20EKJG9');
+  </script><script async="" data-cfasync="false" src="https://pertawee.net/act/files/tag.min.js?z=9272435"></script><script>
+    const quotes = [{"quote": "You don't have to be extreme, just consistent.", "challenge": "Do one small thing today that supports your long-term goal."}, {"quote": "Discipline is choosing what you want most over what you want now.", "challenge": "Resist one distraction for the next 30 minutes."}, {"quote": "Progress, not perfection.", "challenge": "Finish a task today, even if it’s not perfect."}, {"quote": "A year from now you'll wish you had started today.", "challenge": "Start something you've been putting off — even if it’s just 5 minutes."}, {"quote": "You get what you repeat.", "challenge": "Identify one habit you want to reinforce today."}, {"quote": "Your focus determines your reality.", "challenge": "Work without switching tasks for 25 minutes."}, {"quote": "Small steps every day lead to big results.", "challenge": "Take one small step toward a goal today."}, {"quote": "Don't let perfect be the enemy of good.", "challenge": "Finish something today — even if it's just 80%."}, {"quote": "Clarity comes from engagement, not thought.", "challenge": "Take action on something unclear today."}, {"quote": "The best way out is always through.", "challenge": "Face one task you've been avoiding."}, {"quote": "Success is built on daily discipline.", "challenge": "Stick to your routine today, even if it's hard."}, {"quote": "You grow through what you go through.", "challenge": "Reflect on one challenge you’ve overcome."}, {"quote": "One day or day one — you decide.", "challenge": "Start something small today that you’ve delayed."}, {"quote": "Don’t break the chain.", "challenge": "Continue a positive streak you’ve started."}, {"quote": "Your habits create your future.", "challenge": "Choose one habit to reinforce today."}, {"quote": "Energy flows where attention goes.", "challenge": "Be mindful of where your focus is today."}, {"quote": "Momentum beats motivation.", "challenge": "Do something now — even if you don’t feel like it."}, {"quote": "Do the hard things first.", "challenge": "Tackle your most difficult task this morning."}, {"quote": "Every accomplishment starts with a decision to try.", "challenge": "Say yes to something new today."}, {"quote": "Confidence is earned, not given.", "challenge": "Act boldly, even if you feel unsure."}, {"quote": "Less thinking, more doing.", "challenge": "Take action without overanalyzing today."}, {"quote": "Create more than you consume.", "challenge": "Make something — write, draw, build — today."}, {"quote": "Distractions are choices.", "challenge": "Turn off notifications for the next 60 minutes."}, {"quote": "Show up, even if you’re not ready.", "challenge": "Start something today, even if it’s messy."}, {"quote": "Rest is part of the process.", "challenge": "Take one intentional break today."}, {"quote": "Be stubborn about your goals, but flexible in your methods.", "challenge": "Try a new approach to an old challenge."}, {"quote": "Direction is more important than speed.", "challenge": "Slow down and double-check your priorities."}, {"quote": "The only way to fail is to stop trying.", "challenge": "Revisit something you gave up on."}, {"quote": "Success is the sum of small efforts repeated daily.", "challenge": "Repeat one productive habit today."}, {"quote": "Let your actions speak louder than your mood.", "challenge": "Follow through even if you’re not feeling it."}, {"quote": "Discipline is freedom.", "challenge": "Set one clear boundary today and stick to it."}, {"quote": "You are your only competition.", "challenge": "Do something better than yesterday — even a little."}, {"quote": "Focus on the process, not just the result.", "challenge": "Enjoy the act of doing, not just finishing."}, {"quote": "Your future is created by what you do today.", "challenge": "Invest in something your future self will thank you for."}, {"quote": "You can't pour from an empty cup.", "challenge": "Take care of yourself before helping others today."}, {"quote": "Saying no is a productivity skill.", "challenge": "Say no to one unnecessary thing today."}, {"quote": "What you do daily matters more than what you do occasionally.", "challenge": "Reinforce a habit, not just an outcome."}, {"quote": "A focused mind is a powerful mind.", "challenge": "Limit multitasking for one hour today."}, {"quote": "Big goals need daily fuel.", "challenge": "Write down one reason why your goal matters."}, {"quote": "Even 1% better each day compounds over time.", "challenge": "Improve one tiny thing today."}, {"quote": "Be where your feet are.", "challenge": "Practice presence during one routine task today."}, {"quote": "Winners keep moving, even after setbacks.", "challenge": "Bounce back from one missed goal or habit."}, {"quote": "Learn, unlearn, relearn.", "challenge": "Challenge one belief or assumption you have."}, {"quote": "You’re always one decision away from a different life.", "challenge": "Make one bold or different choice today."}, {"quote": "Doubt kills more dreams than failure ever will.", "challenge": "Do it afraid — don’t wait for perfect confidence."}, {"quote": "Talk to yourself like someone you love.", "challenge": "Write one kind message to yourself."}, {"quote": "Being busy is not the same as being productive.", "challenge": "Cut one unnecessary task today."}, {"quote": "Time you enjoy wasting is not wasted time.", "challenge": "Schedule guilt-free time for joy."}, {"quote": "Do it for the future you.", "challenge": "Make a choice today with long-term benefits."}, {"quote": "Every ‘no’ to distraction is a ‘yes’ to your goal.", "challenge": "Say no to one tempting distraction."}, {"quote": "The more you practice, the luckier you get.", "challenge": "Repeat one key skill today — even briefly."}];
+
+    function generateQuote() {
+      const index = Math.floor(Math.random() * quotes.length);
+      const quoteText = `"${quotes[index].quote}"\n→ ${quotes[index].challenge}`;
+      document.getElementById("quoteBox").value = quoteText;
+    }
+
+    async function copyQuote() {
+      const text = document.getElementById("quoteBox").value;
+      try {
+        await navigator.clipboard.writeText(text);
+        alert("Quote copied to clipboard!");
+      } catch (err) {
+        alert("Copy failed. Please copy manually.");
+      }
+    }
+
+    async function shareQuote() {
+      const text = document.getElementById("quoteBox").value;
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: "Mindset Quote", text: text });
+        } catch (err) {
+          console.log("Share failed:", err);
+        }
+      } else {
+        alert("Sharing is not supported in this browser.");
+      }
+    }
+
+    function toggleDarkMode() {
+      const currentTheme = document.body.getAttribute("data-theme") || "light";
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      document.body.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem("theme") || "light";
+      document.body.setAttribute("data-theme", savedTheme);
+    });
+  </script><script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9289950,document.createElement('script'))</script><script async="" data-cfasync="false" src="https://vaugroar.com/act/files/tag.min.js?z=9289953"></script><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script><script>
+/* drawer */
+const btn=document.getElementById('menuBtn'),nav=document.getElementById('mainNav');
+btn.onclick=()=>nav.classList.toggle('open');
+
+/* lang switch */
+(function(){
+  const switcher=document.getElementById('langSwitch');
+  const path=location.pathname;
+  if(path.startsWith('/nl/')){switcher.textContent='English';switcher.href=path.replace('/nl/','/en/');}
+  else{switcher.textContent='Nederlands';switcher.href='/nl'+(path.startsWith('/en/')?path.slice(3):path);}
+})();
+
+/* dark-mode preference */
+document.addEventListener('DOMContentLoaded',()=>{
+  document.body.setAttribute('data-theme',localStorage.getItem('theme')||'light');
+});
+
+/* BMI logic */
+document.getElementById('unitToggle').addEventListener('change',function(){
+  const w=document.getElementById('gewicht'),h=document.getElementById('lengte');
+  const wu=document.getElementById('weightUnit'),hu=document.getElementById('heightUnit');
+  if(this.value==='imperial'){w.value=(parseFloat(w.value)*2.20462||'');h.value=(parseFloat(h.value)/2.54||'');wu.textContent='lbs';hu.textContent='inches';}
+  else{w.value=(parseFloat(w.value)/2.20462||'');h.value=(parseFloat(h.value)*2.54||'');wu.textContent='kg';hu.textContent='cm';}
+});
+
+document.getElementById('bmiForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  let w=parseFloat(document.getElementById('gewicht').value);
+  let h=parseFloat(document.getElementById('lengte').value);
+  const age=parseInt(document.getElementById('leeftijd').value);
+  if(document.getElementById('unitToggle').value==='imperial'){w/=2.20462;h*=2.54;}
+  h/=100;
+  const bmi=w/(h*h);
+  let cat='';
+  if(age<18){cat=bmi<14?'Underweight (child)':bmi<18?'Normal (child)':'Overweight (child)';}
+  else{cat=bmi<18.5?'Underweight':bmi<25?'Normal':bmi<30?'Overweight':'Obese';}
+  const res=document.getElementById('resultaat');
+  res.innerHTML=`<strong>BMI: ${bmi.toFixed(1)}</strong><br>${cat}`;
+  res.style.display='block';
+});
+</script><script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What are the BMI cut-offs for children?", "acceptedAnswer": {"@type": "Answer", "text": "Below 14 is underweight, 14–18 healthy weight, above 18 overweight/obese (ages 2–17)."}}, {"@type": "Question", "name": "Is BMI accurate for muscular people?", "acceptedAnswer": {"@type": "Answer", "text": "No, BMI cannot differentiate muscle from fat. Athletes may show high BMI but low body fat."}}, {"@type": "Question", "name": "How do I lower my BMI safely?", "acceptedAnswer": {"@type": "Answer", "text": "Create a small calorie deficit, eat nutrient‑dense foods and combine strength plus cardio training."}}]}
+</script></html>

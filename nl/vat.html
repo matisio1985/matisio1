@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q5S20EKJG9');</script>
+<!-- Monetag -->
+<script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
+<script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9289950,document.createElement('script'))</script>
+<script src="https://vaugroar.com/act/files/tag.min.js?z=9289953" data-cfasync="false" async></script>
+
+
+<title>BTW Rekenmachine | Voeg toe of verwijder BTW van prijzen | MathijssenFit</title>
+<meta name="description" content="Voeg eenvoudig BTW toe aan of verwijder BTW van elke prijs met onze gratis BTW calculator. Handig voor ondernemers, freelancers en consumenten.">
+<meta name="keywords" content="BTW calculator, belasting calculator, BTW toevoegen, BTW verwijderen, prijs calculator, inclusief BTW, exclusief BTW">
+<meta property="og:title" content="BTW Rekenmachine | MathijssenFit">
+<meta property="og:description" content="Gratis tool om BTW op elke prijs te berekenen. Voeg belasting toe of verwijder deze direct.">
+<meta property="og:url" content="https://matisio.nl/nl/vat.html">
+<meta name="twitter:card" content="summary">
+
+<meta name="description" content="Add or remove VAT from a price.">
+
+<style>
+:root{--bg:#f9f9f9;--card:#fff;--text:#222;--accent:#007acc;}
+[data-theme="dark"]{--bg:#121212;--card:#1e1e1e;--text:#e0e0e0;--accent:#4ea8de;}
+body{margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);}
+header{background:linear-gradient(150deg,var(--accent),#34c759);color:#fff;text-align:center;padding:5rem 1rem 3rem;position:relative;}
+header::after{content:'';position:absolute;bottom:-40px;left:0;width:100%;height:80px;background:var(--bg);clip-path:polygon(0 0,100% 100%,0 100%);}
+.menu-btn{position:fixed;top:1rem;left:1rem;z-index:100;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:1.5rem;padding:.3rem .7rem;cursor:pointer;}
+.drawer{position:fixed;top:0;left:0;height:100vh;width:240px;background:var(--card);box-shadow:2px 0 8px rgba(0,0,0,.15);padding:4rem 1rem 1rem;display:flex;flex-direction:column;gap:1rem;transform:translateX(-100%);transition:transform .3s;z-index:90;}
+.drawer.open{transform:translateX(0);}
+.drawer a{color:var(--text);text-decoration:none;font-weight:bold;padding:.6rem .8rem;border-radius:6px;}
+.drawer a:hover{background:var(--bg);}
+@media(min-width:800px){.menu-btn{display:none;}.drawer{transform:translateX(0);position:static;height:auto;width:auto;flex-direction:row;background:none;box-shadow:none;padding:0;gap:1rem;align-items:center;}.drawer a{color:#fff;background:var(--accent);} .drawer a:hover{background:#005c99;color:#fff;} header{padding-top:7rem;}}
+main{max-width:600px;margin:3rem auto;padding:2rem;background:var(--card);border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.05);text-align:center;}
+footer{text-align:center;font-size:.9rem;color:#555;padding:2rem 1rem;}
+input,select{width:100%;padding:.8rem;margin-top:.5rem;border:1px solid #ccc;border-radius:8px;}
+button{padding:.8rem 1.2rem;border:none;border-radius:8px;background:var(--accent);color:#fff;margin:.5rem 0;cursor:pointer;}
+button:hover{background:#005c99;}
+</style>
+
+</head>
+<body data-theme="light">
+
+<button class="menu-btn" id="toggle">☰</button>
+<nav class="drawer" id="drawer">
+  <a href="/en/">🏠 Home</a>
+  <a href="/en/#health">💪 Health</a>
+  <a href="/en/#productivity">⏱️ Productivity</a>
+  <a href="/en/#utilities">🔧 Utilities</a>
+</nav>
+<script>
+const drawer=document.getElementById('drawer');
+document.getElementById('toggle').onclick=()=>drawer.classList.toggle('open');
+</script>
+
+<header>
+  <h1>💰 BTW Rekenmachine</h1>
+  <p>Voeg BTW toe aan of verwijder BTW van een prijs.</p>
+</header>
+<main>
+  
+    <label>Prijs
+      <input type="number" id="price">
+    </label>
+    <label>BTW %
+      <input type="number" id="rate" value="21">
+    </label>
+    <div id="vatout">–</div>
+    <button onclick="addVat()">Voeg BTW toe</button>
+    <button onclick="removeVat()">Verwijder BTW</button>
+    
+</main>
+<section style="max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;">
+  <h2>Wat is BTW?</h2>
+  <p>BTW (Belasting Toegevoegde Waarde) is een verbruiksbelasting die aan de meeste goederen en diensten wordt toegevoegd. In winkels is deze vaak inbegrepen, maar bij zakelijke facturen moet dit handmatig worden toegevoegd afhankelijk van regio of klanttype.</p>
+
+  <h2>Waarom een BTW calculator gebruiken?</h2>
+  <p>Of je nu BTW aan een product toevoegt of het van een totaal verwijdert, deze tool zorgt voor nauwkeurigheid. Vooral handig voor freelancers, kleine ondernemers of iedereen die werkt met internationale of exclusief-BTW prijzen.</p>
+
+  <h2>Hoe werkt het</h2>
+  <p>To calculate VAT, enter the base price and VAT percentage. “Voeg BTW toe” shows the gross price (price + VAT). “Verwijder BTW” reverses the calculation, extracting the tax from a total inclusive price.</p>
+
+  <h2>Voor wie is het bedoeld?</h2>
+  <ul>
+    <li>Ondernemers die werken met inclusief-BTW facturatie</li>
+    <li>Consumenten die winkelprijzen vergelijken</li>
+    <li>Consultants die facturen controleren</li>
+    <li>Webshopeigenaars die een BTW-overzicht maken</li>
+  </ul>
+
+  <h2>Probeer meer MathijssenFit tools</h2>
+  <ul>
+    <li><a href="/en/percentage.html">Percentage Rekenmachine</a> – Handig voor het berekenen van veranderingen en marges.</li>
+    <li><a href="/en/stopwatch.html">Stopwatch</a> – Meet de tijd voor je facturen of werksessies.</li>
+    <li><a href="/en/random-number.html">Willekeurige Getallen Generator</a> – Ideaal voor willekeurige prijsbepaling of ID's.</li>
+  </ul>
+</section>
+
+<section style="max-width:650px;margin:2rem auto;padding:0 1rem;line-height:1.6;">
+  <h2>Veelgestelde Vragen</h2>
+  <h3>Kan ik het BTW-tarief aanpassen?</h3>
+  <p>Ja. Je kunt elk BTW-tarief invoeren dat bij jouw land of product past. Voorbeelden: 5%, 9%, 21%.</p>
+
+  <h3>Werkt deze calculator voor zowel inclusief als exclusief prijzen?</h3>
+  <p>Yes. Use “Voeg BTW toe” to convert net to gross and “Verwijder BTW” to convert gross to net.</p>
+
+  <h3>Is dit geschikt voor professioneel gebruik?</h3>
+  <p>Ja. Veel freelancers en kleine ondernemers gebruiken dit voor nauwkeurige facturatie en offertes.</p>
+
+  <h3>Is het gratis?</h3>
+  <p>Ja. Deze BTW calculator is 100% gratis te gebruiken zonder onderbrekende advertenties.</p>
+
+  <h3>Kan ik het op mijn telefoon gebruiken?</h3>
+  <p>Zeker. Het is geoptimaliseerd voor mobiel gebruik en werkt op elk apparaat.</p>
+</section>
+
+<footer>&copy; 2025 MathijssenFit – Gemaakt met eenvoud en precisie</footer>
+<script>
+function addVat(){const p=parseFloat(document.getElementById('price').value);const r=parseFloat(document.getElementById('rate').value)/100;document.getElementById('vatout').textContent=(p*(1+r)).toFixed(2);}
+function removeVat(){const p=parseFloat(document.getElementById('price').value);const r=parseFloat(document.getElementById('rate').value)/100;document.getElementById('vatout').textContent=(p/(1+r)).toFixed(2);}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Kan ik het BTW-tarief aanpassen?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enter any percentage that suits your country\u2019s VAT level."}}, {"@type": "Question", "name": "Werkt deze calculator voor inclusief en exclusief BTW?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Je kunt zowel BTW toevoegen als verwijderen van een prijs."}}, {"@type": "Question", "name": "Is het gratis te gebruiken?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Het is volledig gratis en werkt in je browser."}}, {"@type": "Question", "name": "Kan ik het professioneel gebruiken?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Het wordt gebruikt door kleine ondernemers, freelancers en financieel professionals."}}, {"@type": "Question", "name": "Werkt het op smartphones?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, het werkt perfect op alle mobiele browsers."}}]}
+</script>
+</body>
+</html>
