@@ -62,5 +62,63 @@ document.getElementById('toolSearch').addEventListener('input',e=>{const q=e.tar
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"MathijssenFit Tools","url":"https://matisio.nl/en/","potentialAction":{"@type":"SearchAction","target":"https://matisio.nl/nl/?q={search_term_string}","query-input":"required name=search_term_string"}}
 </script>
+<!-- Cookiebanner met Google Analytics 4 voor matisio.nl/nl -->
+<style>
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  z-index: 9999;
+}
+#cookie-banner button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+</style>
+
+<div id="cookie-banner">
+  Deze website gebruikt cookies voor statistieken en gebruikservaring. 
+  <a href="/nl/cookiebeleid" style="color:#4CAF50;">Meer informatie</a>.
+  <button onclick="acceptCookies()">Accepteren</button>
+</div>
+
+<script>
+function acceptCookies() {
+  localStorage.setItem("cookiesAccepted", "true");
+  document.getElementById("cookie-banner").style.display = "none";
+  loadAnalytics();
+}
+
+function loadAnalytics() {
+  if (localStorage.getItem("cookiesAccepted") === "true") {
+    var scriptTag = document.createElement("script");
+    scriptTag.async = true;
+    scriptTag.src = "https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9";
+    document.head.appendChild(scriptTag);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-Q5S20EKJG9');
+  }
+}
+
+window.onload = function() {
+  if (localStorage.getItem("cookiesAccepted") === "true") {
+    document.getElementById("cookie-banner").style.display = "none";
+    loadAnalytics();
+  }
+};
+</script>
 </body>
 </html>
