@@ -115,35 +115,5 @@ document.getElementById('toolSearch').addEventListener('input',e=>{const q=e.tar
   <button onclick="acceptCookies()">Accept</button>
 </div>
 <a href="https://matisio.nl/privacy-policy">Privacy Policy</a>	
-
-<script>
-function acceptCookies() {
-  localStorage.setItem("cookiesAccepted", "true");
-  document.getElementById("cookie-banner").style.display = "none";
-  loadAnalytics();
-}
-
-function loadAnalytics() {
-  if (localStorage.getItem("cookiesAccepted") === "true") {
-    var scriptTag = document.createElement("script");
-    scriptTag.async = true;
-    scriptTag.src = "https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9";
-    document.head.appendChild(scriptTag);
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', 'G-Q5S20EKJG9');
-  }
-}
-
-window.onload = function() {
-  if (localStorage.getItem("cookiesAccepted") === "true") {
-    document.getElementById("cookie-banner").style.display = "none";
-    loadAnalytics();
-  }
-};
-</script>
 </body>
 </html>
