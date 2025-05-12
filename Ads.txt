@@ -1,5 +1,3 @@
-<?php
-header('Location: https://srv.adstxtmanager.com/19390/matisio.nl');
-exit;
+https://srv.adstxtmanager.com/19390/matisio.nl
 google.com, pub-3167065596755326, DIRECT, f08c47fec0942fa0
 monetag.com, 142870, DIRECT
