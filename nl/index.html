@@ -53,6 +53,47 @@
 <div class="card"><a href="/nl/date-calculator.html">📅 Datum Rekenhulp</a></div>
 <div class="card"><a href="/nl/jpg-to-png.html">🖼️ JPG → PNG Converter</a></div>
 <div class="card"><a href="/nl/iq-test.html">🧠 Snelle IQ Test</a></div></div></section>
+<section class="category">
+  <h2>📝 Laatste Blogposts</h2>
+  <div id="blogfeed" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin:2rem auto;max-width:1000px;"></div>
+  <div style="text-align:center;margin-top:2rem;">
+    <a href="https://blog.matisio.nl" target="_blank" style="background:var(--accent);color:white;padding:.8rem 1.5rem;border-radius:6px;text-decoration:none;font-weight:bold;">Bekijk alle blogs</a>
+  </div>
+</section>
+
+<script>
+  function showRecentPosts(json) {
+    const container = document.getElementById("blogfeed");
+    const entries = json.feed.entry || [];
+    const seen = new Set();
+    let count = 0;
+    for (let i = 0; i < entries.length && count < 5; i++) {
+      const entry = entries[i];
+      const title = entry.title.$t;
+      const url = entry.link.find(l => l.rel === "alternate").href;
+      if (seen.has(url)) continue;
+      seen.add(url);
+      const date = new Date(entry.published.$t).toLocaleDateString("nl-NL");
+      const thumbnail = entry.media$thumbnail ? entry.media$thumbnail.url : 'https://matisio.nl/assets/og/cover-en.png';
+      const div = document.createElement("div");
+      div.style.background = "var(--card)";
+      div.style.borderRadius = "8px";
+      div.style.overflow = "hidden";
+      div.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
+      div.innerHTML = `
+        <a href="${url}" target="_blank" style="text-decoration:none;color:inherit;display:block;">
+          <img src="${thumbnail}" alt="${title}" style="width:100%;height:140px;object-fit:cover;display:block;">
+          <div style="padding:1rem;">
+            <h3 style="margin:0 0 .5rem;font-size:1.1rem;">${title}</h3>
+            <p style="margin:0;color:#666;font-size:.9rem;">${date}</p>
+          </div>
+        </a>`;
+      container.appendChild(div);
+      count++;
+    }
+  }
+</script>
+<script src="https://blog.matisio.nl/feeds/posts/default?alt=json-in-script&callback=showRecentPosts"></script>
 <footer>&copy; 2025 MathijssenFit – Gemaakt met zorg en cafeïne ☕</footer>
 <script>
 document.getElementById('menuToggle').onclick=()=>document.getElementById('navDrawer').classList.toggle('open');
