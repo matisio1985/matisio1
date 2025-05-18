@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🫁 Gratis VO₂ Max Calculator | MathijssenFit</title>
+  <meta name="description" content="Gratis VO₂ Max-calculator op basis van rusthartslag of Coopertest — schat je cardiovasculaire conditie online.">
+  <link rel="alternate" hreflang="nl" href="https://matisio.nl/nl/bmi.html">
+  <link rel="alternate" hreflang="en" href="https://matisio.nl/en/bmi.html">
+  <link rel="alternate" hreflang="x-default" href="https://matisio.nl/en/bmi.html">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5S20EKJG9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q5S20EKJG9');
+  </script>
+
+  <!-- Monetag Ads -->
+  <script src="https://pertawee.net/act/files/tag.min.js?z=9272435" data-cfasync="false" async></script>
+  <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9289950,document.createElement('script'))</script>
+  <script src="https://vaugroar.com/act/files/tag.min.js?z=9289953" data-cfasync="false" async></script>
+
+  <style>
+    :root {--bg:#f9f9f9;--text:#222;--card:#fff;--accent:#007acc;}
+    [data-theme="dark"]{--bg:#121212;--text:#e0e0e0;--card:#1e1e1e;--accent:#4ea8de;}
+    body{font-family:'Segoe UI',sans-serif;margin:0;background:var(--bg);color:var(--text);}
+    header{background:linear-gradient(160deg,var(--accent) 0%,#34c759 100%);color:#fff;text-align:center;padding:5rem 1rem 3rem;position:relative;overflow:hidden;}
+    header::after{content:'';position:absolute;bottom:-40px;left:0;width:100%;height:80px;background:var(--bg);clip-path:polygon(0 0,100% 100%,0 100%);}
+    .menu-toggle{position:fixed;top:1rem;left:1rem;z-index:100;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:1.5rem;padding:.4rem .6rem;cursor:pointer;}
+    .nav-drawer{position:fixed;top:0;left:0;height:100vh;width:240px;background:var(--card);box-shadow:2px 0 8px rgba(0,0,0,.15);padding:4rem 1rem 1rem;display:flex;flex-direction:column;gap:1rem;transform:translateX(-100%);transition:transform .3s;z-index:90;}
+    .nav-drawer.open{transform:translateX(0);}
+    .nav-drawer a{background:none;color:var(--text);font-weight:bold;text-decoration:none;padding:.7rem 1rem;border-radius:6px;}
+    .nav-drawer a:hover{background:var(--bg);}
+    @media(min-width:800px){.menu-toggle{display:none;}.nav-drawer{transform:translateX(0);position:static;height:auto;width:auto;flex-direction:row;background:none;box-shadow:none;padding:0;gap:1rem;align-items:center;}
+      .nav-drawer a{color:#fff;background:var(--accent);} .nav-drawer a:hover{background:#005fa8;color:#fff;} header{padding-top:7rem;}}
+    main{max-width:600px;margin:3rem auto;padding:2rem;background:var(--card);border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.05);}
+    label{display:block;margin-top:1rem;}
+    input,select{width:100%;padding:.8rem;margin-top:.5rem;border:1px solid #ccc;border-radius:8px;}
+    button[type=submit]{margin-top:1.5rem;width:100%;padding:1rem;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer;}
+    button[type=submit]:hover{background:#005fa8;}
+    .result{margin-top:2rem;padding:1.2rem;background:#e6f7ff;border-left:5px solid var(--accent);border-radius:6px;}
+    section{max-width:600px;margin:2rem auto;padding:1rem;}
+  </style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What are the VO₂ Max cut-offs for children?", "acceptedAnswer": {"@type": "Answer", "text": "Below 14 is underweight, 14–18 healthy weight, above 18 overweight/obese (ages 2–17)."}}, {"@type": "Question", "name": "Is VO₂ Max accurate for muscular people?", "acceptedAnswer": {"@type": "Answer", "text": "No, VO₂ Max cannot differentiate muscle from fat. Athletes may show high VO₂ Max but low body fat."}}, {"@type": "Question", "name": "How do I lower my VO₂ Max safely?", "acceptedAnswer": {"@type": "Answer", "text": "Create a small calorie deficit, eat nutrient‑dense foods and combine strength plus cardio training."}}]}
+</script>
+</head>
+<body data-theme="light">
+
+<button id="menuBtn" class="menu-toggle">☰</button>
+<nav id="mainNav" class="nav-drawer">
+  <a href="/">🏠 🏠 Startpagina</a>
+  <a href="/en/">🌐 Engels</a>
+  <a href="https://instagram.com/mathijssenfit" target="_blank">📸 Instagram</a>
+  <a href="https://blog.matisio.nl" target="_blank">📝 📝 Blog</a>
+  <a id="langSwitch" href="#" style="background:#34c759;margin-top:1rem;">Nederlands</a>
+</nav>
+
+<header>
+  <h1>🫁 Gratis VO₂ Max Calculator</h1>
+  <p>Schat je VO₂ Max op basis van rusthartslag of loopprestatie.</p>
+</header>
+
+
+<main>
+  <form id="vo2Form">
+    <h3>Methode 1: Rusthartslag</h3>
+    <label>Rusthartslag (bpm):
+      <input type="number" id="rhr" placeholder="e.g. 60">
+    </label>
+    <label>Leeftijd:
+      <input type="number" id="age1" placeholder="e.g. 30">
+    </label>
+
+    <h3>Methode 2: Coopertest</h3>
+    <label>Afstand afgelegd in 12 minuten (meters):
+      <input type="number" id="cooper" placeholder="e.g. 2400">
+    </label>
+
+    <button type="submit">Bereken VO₂ Max</button>
+  </form>
+
+  <div id="vo2result" class="result" style="display:none;"></div>
+
+  <div class="ads" style="text-align:center;margin-top:2rem;">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3167065596755326" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+</main>
+
+
+
+
+
+<script>
+document.getElementById('vo2Form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const rhr = parseFloat(document.getElementById('rhr').value);
+  const age = parseFloat(document.getElementById('age1').value);
+  const dist = parseFloat(document.getElementById('cooper').value);
+  let result = '';
+
+  if (!isNaN(rhr) && !isNaN(age)) {
+    // VO2 Max formula via Heart Rate (Uth et al., 2004)
+    const vo2_rhr = 15.3 * (220 - age) / rhr;
+    result += `<strong>Methode Hartslag:</strong> Geschatte VO₂ Max: ${vo2_rhr.toFixed(1)} ml/kg/min<br>`;
+  }
+
+  if (!isNaN(dist)) {
+    // Cooper test formula
+    const vo2_cooper = (dist - 504.9) / 44.73;
+    result += `<strong>Methode Coopertest:</strong> Geschatte VO₂ Max: ${vo2_cooper.toFixed(1)} ml/kg/min`;
+  }
+
+  if (result === '') result = 'Vul minstens één methode in.';
+  const output = document.getElementById('vo2result');
+  output.innerHTML = result;
+  output.style.display = 'block';
+});
+</script>
+
+
+
+
+<script>
+document.getElementById('vo2Form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const rhr = parseFloat(document.getElementById('rhr').value);
+  const age = parseFloat(document.getElementById('age1').value);
+  const dist = parseFloat(document.getElementById('cooper').value);
+  let result = '';
+
+  if (!isNaN(rhr) && !isNaN(age)) {
+    // VO2 Max formula via Heart Rate (Uth et al., 2004)
+    const vo2_rhr = 15.3 * (220 - age) / rhr;
+    result += `<strong>Methode Hartslag:</strong> Geschatte VO₂ Max: ${vo2_rhr.toFixed(1)} ml/kg/min<br>`;
+  }
+
+  if (!isNaN(dist)) {
+    // Cooper test formula
+    const vo2_cooper = (dist - 504.9) / 44.73;
+    result += `<strong>Methode Coopertest:</strong> Geschatte VO₂ Max: ${vo2_cooper.toFixed(1)} ml/kg/min`;
+  }
+
+  if (result === '') result = 'Vul minstens één methode in.';
+  const output = document.getElementById('vo2result');
+  output.innerHTML = result;
+  output.style.display = 'block';
+});
+</script>
+
+
+
+
+
+
+<script>
+/* drawer */
+const btn=document.getElementById('menuBtn'),nav=document.getElementById('mainNav');
+btn.onclick=()=>nav.classList.toggle('open');
+
+/* lang switch */
+(function(){
+  const switcher=document.getElementById('langSwitch');
+  const path=location.pathname;
+  if(path.startsWith('/nl/')){switcher.textContent='Engels';switcher.href=path.replace('/nl/','/en/');}
+  else{switcher.textContent='Nederlands';switcher.href='/nl'+(path.startsWith('/en/')?path.slice(3):path);}
+})();
+
+/* dark-mode preference */
+document.addEventListener('DOMContentLoaded',()=>{
+  document.body.setAttribute('data-theme',localStorage.getItem('theme')||'light');
+});
+
+/* VO₂ Max logic */
+document.getElementById('unitToggle').addEventListener('change',function(){
+  const w=document.getElementById('gewicht'),h=document.getElementById('lengte');
+  const wu=document.getElementById('weightUnit'),hu=document.getElementById('heightUnit');
+  if(this.value==='imperial'){w.value=(parseFloat(w.value)*2.20462||'');h.value=(parseFloat(h.value)/2.54||'');wu.textContent='lbs';hu.textContent='inches';}
+  else{w.value=(parseFloat(w.value)/2.20462||'');h.value=(parseFloat(h.value)*2.54||'');wu.textContent='kg';hu.textContent='cm';}
+});
+
+document.getElementById('bmiForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  let w=parseFloat(document.getElementById('gewicht').value);
+  let h=parseFloat(document.getElementById('lengte').value);
+  const age=parseInt(document.getElementById('leeftijd').value);
+  if(document.getElementById('unitToggle').value==='imperial'){w/=2.20462;h*=2.54;}
+  h/=100;
+  const bmi=w/(h*h);
+  let cat='';
+  if(age<18){cat=bmi<14?'Underweight (child)':bmi<18?'Normal (child)':'Overweight (child)';}
+  else{cat=bmi<18.5?'Underweight':bmi<25?'Normal':bmi<30?'Overweight':'Obese';}
+  const res=document.getElementById('resultaat');
+  res.innerHTML=`<strong>VO₂ Max: ${bmi.toFixed(1)}</strong><br>${cat}`;
+  res.style.display='block';
+});
+</script>
+
+
+
+
+<section>
+  <h2>Wat is VO₂ Max?</h2>
+  <p>VO₂ Max is de maximale hoeveelheid zuurstof die je lichaam tijdens inspanning kan gebruiken. Het is een sterke indicator van je cardiovasculaire uithoudingsvermogen en conditie.</p>
+  <h3>Normale Waarden</h3>
+  <ul>
+    <li><strong>Uitstekend:</strong> &gt; 50 (mannen), &gt; 45 (vrouwen)</li>
+    <li><strong>Goed:</strong> 42–50 (mannen), 38–45 (vrouwen)</li>
+    <li><strong>Gemiddeld:</strong> 35–41 (mannen), 31–37 (vrouwen)</li>
+    <li><strong>Slecht:</strong> &lt; 35 (mannen), &lt; 31 (vrouwen)</li>
+  </ul>
+
+  <h3>Hoe verbeter je je VO₂ Max?</h3>
+  <ul>
+    <li>Doe aan high-intensity interval training (HIIT)</li>
+    <li>Voer regelmatig duurtraining uit (bijv. hardlopen, fietsen, roeien)</li>
+    <li>Train consequent en meet je vooruitgang over weken</li>
+  </ul>
+
+  <h3>Veelgestelde Vragen</h3>
+  <ul>
+    <li><strong>Hoe nauwkeurig is deze calculator?</strong><br>Het is een schatting op basis van wetenschappelijk gevalideerde formules, maar individuele variatie is mogelijk.</li>
+    <li><strong>Welke methode is beter?</strong><br>De Coopertest is nauwkeuriger als deze correct wordt uitgevoerd. De rusthartslagmethode is handig, maar minder precies.</li>
+    <li><strong>Heb ik een laboratoriumtest nodig?</strong><br>Voor atleten of medische doeleinden is een labtest het meest nauwkeurig — deze tool biedt een toegankelijke online schatting.</li>
+  </ul>
+</section>
+
+<footer style="text-align:center;font-size:.9rem;color:#555;padding:2rem 1rem;">&copy; 2025 MathijssenFit
+</footer>
+</body>
+</html>
